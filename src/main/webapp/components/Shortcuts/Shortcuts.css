@@ -1,0 +1,30 @@
+.outerShortcuts{
+    background-color: transparent;
+    width: 20rem;
+    height: 80vh;
+    margin: 8rem 0 0 5rem;
+}
+
+.innerShortcuts{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20rem;
+    height: 80vh;
+    border-radius: 120px;
+    box-shadow: #0000007a 1px 12px 12px 0px;
+    position: fixed;
+}
+
+.shortTitle{
+    margin-top: 1.5rem;
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+.shortItem{
+    font-size: 4rem;
+    color: #514B4B;
+    margin: 1.5rem 0 1rem 0;
+}

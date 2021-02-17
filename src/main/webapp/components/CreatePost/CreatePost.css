@@ -1,0 +1,47 @@
+.createContainer{
+    background-color: white;
+    width: 40rem;
+    height: 10rem;
+    padding: 1rem;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;    
+    box-shadow: #0000007a 0px 6px 16px 0px;
+}
+
+.profileIcon{
+    font-size: 5rem;
+    color: #514B4B;
+    margin-right: 1rem;
+}
+
+.createInput, .createBtn{
+    outline: none;
+    border: none;
+    background-color: #C4C4C4;
+}
+
+.createInput{
+    border-radius: 15px;
+    height: 5rem;
+    width: 30rem;
+    padding: 1rem;
+}
+
+.createBtn{
+    border-radius: 15px;
+    margin-top: 1rem;
+    margin-left: 1.5rem;
+    width: 8rem;
+    padding: .3rem;
+    font-size: 1.1rem;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.createSubmit{
+    color: white;
+    background-color: #514B4B;
+}

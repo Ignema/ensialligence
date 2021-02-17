@@ -1,0 +1,36 @@
+.suggestionsContainer{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20rem;
+    height: 43vh;
+    border-radius: 70px;
+    box-shadow: #0000007a 1px 12px 12px 0px;
+}
+
+.suggestionsContainer>p{
+    margin-top: 2rem;
+    font-size: 1.3rem;
+    font-weight: bolder;
+}
+
+.suggestionsContainer>ul{
+    margin-top: 1.2rem;
+}
+
+.suggestionsContainer>ul>li{
+    margin-top: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+
+.suggestionsIcon{
+    font-size: 3rem;
+    margin-right: 2rem;
+}
+
+.suggestionsContainer>ul>li>p{
+    font-size: 1.1rem;
+    font-weight: bolder;
+}

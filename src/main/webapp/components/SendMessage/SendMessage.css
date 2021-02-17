@@ -1,0 +1,46 @@
+.sendMessageContainer{
+    background-color: white;
+    width: 40rem;
+    padding: 1rem;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;    
+    box-shadow: #0000007a 0px 6px 16px 0px;
+}
+
+.sendMessageFields{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: -webkit-fill-available;
+}
+
+.sendMessageInput{
+    outline: none;
+    border: none;
+    background-color: #C4C4C4;
+    border-radius: 15px;
+    width: 30rem;
+    padding: 1rem;
+}
+
+.sendMessageSubmit{
+    background-color: #514B4B;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 2rem;
+    cursor: pointer;
+    box-shadow :#0000007a 2px 4px 12px 0px;
+}
+
+.sendMessageCaret{
+    color: white;
+    font-size: 2.7rem;
+    margin: 0.4rem 0 0.4rem 0.4rem;
+}
+

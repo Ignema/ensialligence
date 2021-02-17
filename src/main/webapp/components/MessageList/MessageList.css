@@ -1,0 +1,28 @@
+.messageListContainer{
+    background-color: white;
+    width: 40rem;
+    height: 65vh;
+    padding: 1rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: #0000007a 0px 6px 16px 0px;
+    margin-bottom: 3rem;
+    overflow-y: scroll;
+}
+
+.messageListContainer::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+.messageListContainer::-webkit-scrollbar-track {
+background: #f1f1f1;
+}
+
+.messageListContainer::-webkit-scrollbar-thumb {
+background: #888;
+}
+
+.messageListContainer::-webkit-scrollbar-thumb:hover {
+background: #555;
+}

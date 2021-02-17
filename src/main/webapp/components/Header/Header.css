@@ -1,0 +1,70 @@
+.headerContainer{
+    background-color: white;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow: #0000007a 2px 2px 12px 0px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.logo{
+    width: 12rem;
+    margin-left: 1rem;
+}
+
+.navList{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+}
+
+.navItem{
+    margin: .2rem 2rem .2rem 2rem;
+    font-size: 1.2rem;
+    font-weight: bolder;
+}
+
+.navItem>a{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.navIcon{
+    font-size: 2rem;
+    padding: .2rem;
+}
+
+.navProfileIcon{
+    font-size: 3rem;
+}
+
+.search{
+    display: flex;
+}
+
+.search-input, .searchIcon{
+    background-color: #c4c4c4;
+    height: 2rem;
+    padding: .7rem;
+}
+
+.search-input{
+    outline: none;
+    border: none;
+    border-radius: 0 12px 12px 0;
+    width: 15rem;
+}
+
+.searchIcon{
+    display: flex !important;
+    justify-content:center;
+    align-items:center;
+    border-radius: 12px 0 0 12px;
+    width: 1.2rem;
+}
+

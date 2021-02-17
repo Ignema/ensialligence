@@ -1,0 +1,25 @@
+.chatContainer{
+    margin-top: 1rem;
+}
+
+.chatContainer>ul{
+    display: flex;
+    flex-direction: row;
+}
+
+.chatContainer>ul>li{
+    height: 4.5rem;
+    width: 4.5rem;
+    border-radius: 100%;
+    background-color: #514B4B;
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .3rem;
+}
+
+.chatIcon{
+    color: white;
+    font-size: 2.4rem;
+}

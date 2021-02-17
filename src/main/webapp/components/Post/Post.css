@@ -1,0 +1,55 @@
+.postContainer{
+    padding: 1rem;
+    margin-bottom: 2rem;
+    background-color: white;
+    box-shadow: #0000007a 0px 6px 16px 0px;
+    border-radius: 15px;
+    width: 100%;
+}
+
+.postBody{
+    word-break: break-all;
+}
+
+.postMeta, .postPoster, .postIcons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.postMeta{
+    position: relative;
+    margin-top: 1.5rem;
+}
+
+.posterProfile{
+    position: absolute;
+    right: 38rem;
+    top: -1rem;
+    box-shadow: #0000007a 0px 6px 16px 0px;
+    background-color: #514B4B;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 100%;
+}
+
+.postPoster{
+    margin-left: 3rem;
+    display: flex;
+    align-items: center;
+}
+
+.posterName{
+    font-size: 1.2rem;
+    font-weight: bolder;
+    margin-right: 1rem;
+}
+
+.postIcons{
+    color: #514B4B;
+    font-size: 1.4rem;
+}
+
+.postIcon{
+    margin-left: 1rem;
+}

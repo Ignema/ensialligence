@@ -1,0 +1,51 @@
+.outerChatFriends{
+    background-color: transparent;
+    width: 20rem;
+    height: 80vh;
+    margin: 8rem 0 0 5rem;
+}
+
+.innerChatFriends{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20rem;
+    height: 80vh;
+    position: fixed;
+}
+
+.chatFriendsTitle, .chatFriendsName{
+    color: white;
+    font-weight: bolder;
+    padding: 1.2rem;
+    border-radius: 35px;
+    text-align: center;
+    box-shadow: #0000007a 1px 5px 11px 0px;
+}
+
+.chatFriendsTitle{
+    background-color: #3D3A3A;
+    font-size: 1.5rem;
+    height: 1.7rem;
+    width: 10rem;
+}
+
+.chatFriendsName{
+    background-color: #949494;
+    font-size: 1.1rem;
+    height: 1.5rem;
+    width: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-top: 4rem;
+    position: relative;
+}
+
+.chatFriendsFaUser{
+    position: absolute;
+    bottom: 50px;
+    left: 35px;
+    font-size: 3rem;
+    color: white;
+}

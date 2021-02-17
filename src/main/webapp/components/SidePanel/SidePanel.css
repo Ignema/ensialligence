@@ -1,0 +1,13 @@
+.outerSidePanel{
+    background-color: transparent;
+    width: 20rem;
+    height: 70vh;
+    margin: 8rem 5rem 0 0;
+}
+
+.innerSidePanel{
+    background-color: transparent;
+    width: 20rem;
+    height: 70vh;
+    position: fixed;
+}

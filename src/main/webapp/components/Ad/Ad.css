@@ -1,0 +1,22 @@
+.adContainer{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 20rem;
+    height: 27vh;
+    border-radius: 70px;
+    box-shadow: #0000007a 1px 12px 12px 0px;
+    margin-bottom: 2rem;
+}
+
+.adIcon{
+    font-size: 10rem;
+    color: #514B4B;
+}
+
+.adContainer>p{
+    font-size: 1.3rem;
+    font-weight: bolder;
+}

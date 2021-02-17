@@ -1,0 +1,25 @@
+.messageContainer{
+    background-color: #C4C4C4;
+    padding: 1rem;
+    width: 50%;
+    height: 3rem;
+    position: relative;
+    height: fit-content;
+    margin-top: 3rem;
+    box-shadow: #00000080 2px 4px 0px 0px;
+    border-radius: 20px;
+}
+
+.messageNotch{
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-top: 30px solid #C4C4C4;
+    border-bottom: 30px solid transparent;
+    top: 0px;
+  }
+
+.messageContent{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
