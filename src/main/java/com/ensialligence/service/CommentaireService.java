@@ -1,8 +1,8 @@
-package com.ensialligence.DAO.InterfacesImpl;
+package com.ensialligence.service;
 
-import com.ensialligence.DAO.Interfaces.ICommentaire;
-import com.ensialligence.Models.Commentaire;
-import com.ensialligence.DAO.SingletonConnection;
+import com.ensialligence.dao.CommentaireDao;
+import com.ensialligence.model.Commentaire;
+import com.ensialligence.config.PersistenceConfig;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,9 +11,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CommentaireImpl implements ICommentaire {
+public class CommentaireService implements CommentaireDao {
 	
-	Connection connection= SingletonConnection.getConnection();
+	Connection connection= PersistenceConfig.getConnection();
 
 	@Override
 	public Commentaire addComment(Commentaire c) {

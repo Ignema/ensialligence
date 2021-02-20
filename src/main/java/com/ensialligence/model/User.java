@@ -1,4 +1,4 @@
-package com.ensialligence.domain;
+package com.ensialligence.model;
 
 import java.io.Serializable;
 

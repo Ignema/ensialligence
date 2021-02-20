@@ -1,4 +1,4 @@
-package com.ensialligence.Models;
+package com.ensialligence.model;
 
 import java.io.Serializable;
 

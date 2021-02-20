@@ -1,6 +1,6 @@
 package com.ensialligence.web.rest;
 
-import com.ensialligence.domain.User;
+import com.ensialligence.model.User;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

@@ -1,9 +1,9 @@
-package com.ensialligence.DAO;
+package com.ensialligence.config;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class SingletonConnection {
+public class PersistenceConfig {
 	
 	private static Connection connection;
 	

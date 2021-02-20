@@ -1,17 +1,17 @@
-package com.ensialligence.DAO.InterfacesImpl;
+package com.ensialligence.service;
 
-import com.ensialligence.DAO.Interfaces.IJaime;
-import com.ensialligence.Models.Jaime;
-import com.ensialligence.DAO.SingletonConnection;
+import com.ensialligence.dao.JaimeDao;
+import com.ensialligence.model.Jaime;
+import com.ensialligence.config.PersistenceConfig;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 
-public class JaimeImpl implements IJaime {
+public class JaimeDaoService implements JaimeDao {
 	
-	Connection connection= SingletonConnection.getConnection();
+	Connection connection= PersistenceConfig.getConnection();
 
 	@Override
 	public Jaime addJaime(Jaime j) {
