@@ -1,0 +1,112 @@
+package com.ensialligence.DAO.InterfacesImpl;
+
+import com.ensialligence.DAO.Interfaces.ICommentaire;
+import com.ensialligence.Models.Commentaire;
+import com.ensialligence.DAO.SingletonConnection;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class CommentaireImpl implements ICommentaire {
+	
+	Connection connection= SingletonConnection.getConnection();
+
+	@Override
+	public Commentaire addComment(Commentaire c) {
+		try {
+			
+			PreparedStatement ps = connection.prepareStatement("INSERT INTO commentaire(id,idarticle,the_comment,nbjaimecom) VALUES (?,?,?,?)");
+			ps.setInt(1, c.getIdUser());
+			ps.setInt(2, c.getIdArticle());
+			ps.setString(3, c.getComment());
+			ps.setInt(4, c.getNbJaimeCom());
+			ps.executeUpdate();
+			
+			PreparedStatement ps2 = connection.prepareStatement("SELECT MAX(idcom) AS MAX_ID FROM commentaire");
+			ResultSet rs = ps2.executeQuery();
+			if(rs.next()) {
+				c.setIdCom(rs.getInt("MAX_ID"));
+			}
+			
+			ps2.close();
+			ps.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} 		
+		
+		return c;
+	}
+
+	
+	@Override
+	public List<Commentaire> getComments(int idArticle) {
+		List<Commentaire> comments=new ArrayList<Commentaire>();
+		try {
+			
+			PreparedStatement ps = connection.prepareStatement("SELECT * FROM COMMENTAIRE WHERE idarticle=?");
+			ps.setInt(1, idArticle);
+			
+			ResultSet rs = ps.executeQuery();
+			if(rs.next()) {
+				
+				Commentaire c = new Commentaire();
+				c.setIdCom(rs.getInt("idcom"));
+				c.setIdUser(rs.getInt("id"));
+				c.setIdArticle(rs.getInt("idarcticle"));
+				c.setComment(rs.getString("the_comment"));
+				c.setNbJaimeCom(rs.getInt("nbjaimecom"));
+				comments.add(c);
+			}
+			
+			ps.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return comments;
+	}
+
+	
+	@Override
+	public Commentaire updateComment(Commentaire c) {
+		try {
+			
+			PreparedStatement ps = connection.prepareStatement("UPDATE commentaire SET id=?,idarticle=?,the_comment=?,nbjaimecom=? WHERE idcom=?");
+			ps.setInt(1, c.getIdUser());
+			ps.setInt(2, c.getIdArticle());
+			ps.setString(3, c.getComment());
+			ps.setInt(4, c.getNbJaimeCom());
+			ps.setInt(5, c.getIdCom());
+			ps.executeUpdate();
+			
+			ps.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} 		
+		
+		return c;
+	}
+
+	
+	@Override
+	public void deleteComment(Commentaire c){
+		try {
+			
+			PreparedStatement ps = connection.prepareStatement("delete from jaime where idcom=?");
+			ps.setInt(1, c.getIdCom());
+			ps.executeUpdate();
+			ps.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} 
+	}
+
+}
