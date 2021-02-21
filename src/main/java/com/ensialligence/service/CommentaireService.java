@@ -17,6 +17,7 @@ public class CommentaireService implements CommentaireDao {
 
 	@Override
 	public Commentaire addComment(Commentaire c) {
+		
 		try {
 			
 			PreparedStatement ps = connection.prepareStatement("INSERT INTO commentaire(id,idarticle,the_comment,nbjaimecom) VALUES (?,?,?,?)");
@@ -44,20 +45,22 @@ public class CommentaireService implements CommentaireDao {
 
 	
 	@Override
-	public List<Commentaire> getComments(int idArticle) {
+	public List<Commentaire> getComments(int idArticle) { //list all comments of an article
+		
 		List<Commentaire> comments=new ArrayList<Commentaire>();
+		
 		try {
 			
 			PreparedStatement ps = connection.prepareStatement("SELECT * FROM COMMENTAIRE WHERE idarticle=?");
 			ps.setInt(1, idArticle);
 			
 			ResultSet rs = ps.executeQuery();
-			if(rs.next()) {
+			while(rs.next()) {
 				
 				Commentaire c = new Commentaire();
 				c.setIdCom(rs.getInt("idcom"));
 				c.setIdUser(rs.getInt("id"));
-				c.setIdArticle(rs.getInt("idarcticle"));
+				c.setIdArticle(rs.getInt("idarticle"));
 				c.setComment(rs.getString("the_comment"));
 				c.setNbJaimeCom(rs.getInt("nbjaimecom"));
 				comments.add(c);
@@ -75,6 +78,7 @@ public class CommentaireService implements CommentaireDao {
 	
 	@Override
 	public Commentaire updateComment(Commentaire c) {
+		
 		try {
 			
 			PreparedStatement ps = connection.prepareStatement("UPDATE commentaire SET id=?,idarticle=?,the_comment=?,nbjaimecom=? WHERE idcom=?");
@@ -97,9 +101,10 @@ public class CommentaireService implements CommentaireDao {
 	
 	@Override
 	public void deleteComment(Commentaire c){
+		
 		try {
 			
-			PreparedStatement ps = connection.prepareStatement("delete from jaime where idcom=?");
+			PreparedStatement ps = connection.prepareStatement("delete from commentaire where idcom=?");
 			ps.setInt(1, c.getIdCom());
 			ps.executeUpdate();
 			ps.close();

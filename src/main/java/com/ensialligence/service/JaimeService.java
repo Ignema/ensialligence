@@ -9,7 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 
-public class JaimeDaoService implements JaimeDao {
+public class JaimeService implements JaimeDao {
 	
 	Connection connection= PersistenceConfig.getConnection();
 
