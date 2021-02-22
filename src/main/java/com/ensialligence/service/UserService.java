@@ -18,7 +18,9 @@ public class UserService implements UserDao {
 try {
 			connection= PersistenceConfig.getConnection();
 			
-			PreparedStatement ps = connection.prepareStatement("INSERT INTO `utilisateur`(`username`, `password`, `firstname`, `lastname`, `email`, `date_nais`) VALUES (?,?,?,?,?,?)");
+			PreparedStatement ps = connection.prepareStatement("INSERT INTO `utilisateur`"
+																+ "(`username`, `password`, `firstname`, `lastname`, `email`, `date_nais`)"
+																+ " VALUES (?,?,?,?,?,?)");
 			ps.setString(1, user.getUsername());
 			ps.setString(2, user.getPassword());
 			ps.setString(3, user.getFirstname());
@@ -69,6 +71,12 @@ try {
 		}
 		
 		return new User();
+	}
+
+	@Override
+	public boolean followUser(Long idUser) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }
