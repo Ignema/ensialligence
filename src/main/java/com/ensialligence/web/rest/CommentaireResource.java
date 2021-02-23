@@ -43,12 +43,12 @@ public class CommentaireResource {
 		return com.addComment(c);
 	}
 	
-	/*@DELETE
-	@Path("/comments")
+	@DELETE
+	@Path("/comments/{idCom}")
 	@Consumes({MediaType.APPLICATION_FORM_URLENCODED, MediaType.MULTIPART_FORM_DATA, MediaType.APPLICATION_JSON})
-	public void deleteCom(@FormParam(value="idCom")int idCom) {
+	public void deleteCom(@PathParam(value="idCom")int idCom) {
 		com.deleteComment(idCom);
-	}*/
+	}
 	
 	@PUT
 	@Path("/comments")

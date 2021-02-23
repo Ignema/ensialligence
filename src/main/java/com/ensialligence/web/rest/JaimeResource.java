@@ -7,6 +7,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -23,10 +24,11 @@ public class JaimeResource {
 		return jaime.addJaime(j);
 	}
 	
-	/*@DELETE
-	@Path("/jaime")
-	public void deleteJaime(Jaime j) {
-		jaime.removeJaime(j);
-	}*/
+	@DELETE
+	@Path("/jaime/{idJaime}")
+	@Consumes({MediaType.APPLICATION_FORM_URLENCODED, MediaType.MULTIPART_FORM_DATA, MediaType.APPLICATION_JSON})
+	public void deleteJaime(@PathParam(value="idJaime")int idJaime) {
+		jaime.removeJaime(idJaime);
+	}
 
 }

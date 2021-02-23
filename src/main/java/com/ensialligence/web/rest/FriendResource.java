@@ -26,12 +26,12 @@ public class FriendResource {
 		return friend.addFriend(f);
 	}
 	
-	/*@DELETE
-	@Path("/friends")
+	@DELETE
+	@Path("/friends/{idFriend}")
 	@Consumes({MediaType.APPLICATION_FORM_URLENCODED, MediaType.MULTIPART_FORM_DATA, MediaType.APPLICATION_JSON})
-	public void deleteFriend(Friend f) {
-		friend.deleteFriend(f);
-	}*/
+	public void deleteFriend(@PathParam(value="idFriend")int idFriend) {
+		friend.deleteFriend(idFriend);
+	}
 	
 	@GET
     @Path("/user/{idUser}/friends")

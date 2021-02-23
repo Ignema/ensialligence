@@ -6,5 +6,5 @@ public interface JaimeDao {
 
 	Jaime addJaime(Jaime j);
 	
-	void removeJaime(Jaime j);
+	void removeJaime(int idJaime);
 }

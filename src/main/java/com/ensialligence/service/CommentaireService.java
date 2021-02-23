@@ -122,13 +122,11 @@ public class CommentaireService implements CommentaireDao {
 	
 	@Override
 	public void deleteComment(int idCom){
-		
-		Commentaire c = new Commentaire();
-		
+				
 		try {
 			
 			PreparedStatement ps = connection.prepareStatement("delete from commentaire where idcom=?");
-			ps.setInt(1, c.getIdCom());
+			ps.setInt(1, idCom);
 			ps.executeUpdate();
 			ps.close();
 			

@@ -8,6 +8,7 @@ import javax.ws.rs.DELETE;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -25,9 +26,9 @@ public class MessageResource {
 	}
 	
 	@DELETE
-	@Path("/msgs")
+	@Path("/msgs/{idMsg}")
 	@Consumes({MediaType.APPLICATION_FORM_URLENCODED, MediaType.MULTIPART_FORM_DATA, MediaType.APPLICATION_JSON})
-	public void deleteMsg(@FormParam(value="idMsg")int idMsg) {
+	public void deleteMsg(@PathParam(value="idMsg")int idMsg) {
 		msg.deleteMsg(idMsg);
 	}
 

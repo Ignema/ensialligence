@@ -50,7 +50,7 @@ public class MessageService implements MessageDao {
 		try {
 			
 			PreparedStatement ps = connection.prepareStatement("delete from message where idmsg=?");
-			ps.setInt(1, m.getIdMsg());
+			ps.setInt(1, idMsg);
 			ps.executeUpdate();
 			ps.close();
 			

@@ -42,12 +42,12 @@ public class FriendService implements FriendDao{
 	}
 
 	@Override
-	public void deleteFriend(Friend f) {
+	public void deleteFriend(int idFriend) {
 		
 		try {
 			
 			PreparedStatement ps = connection.prepareStatement("delete from friend where idfriend=?");
-			ps.setInt(1, f.getIdFriend());
+			ps.setInt(1, idFriend);
 			ps.executeUpdate();
 			ps.close();
 			
@@ -56,7 +56,7 @@ public class FriendService implements FriendDao{
 		} 
 	}
 	
-	//A
+
 	@Override
 	public List<Friend> getFriends(int idUser) { //list all friends of a user
 		
