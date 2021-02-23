@@ -3,9 +3,10 @@ import './PostList.css';
 
 
 const PostList = ({posts}) => {
+
     return (
         <div className="PostListContainer">
-           {posts.map(post => <Post />)}
+           {posts.map(post => <Post key={post.id} body={post.body} liked={post.liked} />)}
         </div>
     )
 }

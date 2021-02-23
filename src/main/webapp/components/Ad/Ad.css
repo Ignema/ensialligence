@@ -1,5 +1,6 @@
 .adContainer{
-    background-color: white;
+    background-color: #334743;
+    color: #ffffff;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -9,11 +10,20 @@
     border-radius: 70px;
     box-shadow: #0000007a 1px 12px 12px 0px;
     margin-bottom: 2rem;
+    transition: color .3s ease-in-out;
+    cursor: pointer;
+}
+
+.adContainer:hover{
+    color: rgb(48, 46, 46);
+}
+
+.adContainer:active{
+    color: rgb(237, 217, 217);;
 }
 
 .adIcon{
     font-size: 10rem;
-    color: #514B4B;
 }
 
 .adContainer>p{

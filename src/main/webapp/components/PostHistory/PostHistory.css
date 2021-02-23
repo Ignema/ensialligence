@@ -1,5 +1,6 @@
 .postHistoryContainer{
-    background-color: white;
+    background-image: linear-gradient(-20deg, #a089b5, rgb(137, 123, 226));
+    color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
