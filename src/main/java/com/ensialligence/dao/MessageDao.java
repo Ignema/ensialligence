@@ -6,6 +6,6 @@ public interface MessageDao {
 	
 	Message saveMsg(Message m);
 	
-	void deleteMsg(Message m);
+	void  deleteMsg(int idMsg);
 
 }

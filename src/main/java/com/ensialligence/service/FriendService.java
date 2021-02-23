@@ -88,4 +88,3 @@ public class FriendService implements FriendDao{
 	}		
 
 }
-

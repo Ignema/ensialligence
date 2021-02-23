@@ -43,6 +43,27 @@ public class CommentaireService implements CommentaireDao {
 		return c;
 	}
 
+	@Override
+	public Commentaire getCommentById(int idCom) {
+		
+		Commentaire c = new Commentaire();		
+		
+		try {
+			PreparedStatement ps = connection.prepareStatement("SELECT * FROM commentaire WHERE idcom="+idCom);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				c.setIdCom(idCom);
+				c.setIdUser(rs.getInt("id"));
+				c.setIdArticle(rs.getInt("idarticle"));
+				c.setComment(rs.getString("the_comment"));
+				c.setNbJaimeCom(rs.getInt("nbjaimecom"));
+			}
+		ps.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return c;
+	}
 	
 	@Override
 	public List<Commentaire> getComments(int idArticle) { //list all comments of an article
@@ -100,7 +121,9 @@ public class CommentaireService implements CommentaireDao {
 
 	
 	@Override
-	public void deleteComment(Commentaire c){
+	public void deleteComment(int idCom){
+		
+		Commentaire c = new Commentaire();
 		
 		try {
 			
@@ -113,5 +136,8 @@ public class CommentaireService implements CommentaireDao {
 			e.printStackTrace();
 		} 
 	}
+
+
+	
 
 }

@@ -21,7 +21,7 @@ public class MessageService implements MessageDao {
 			
 			PreparedStatement ps = connection.prepareStatement("INSERT INTO message(msg,date_envoi,isread,sender,receiver) VALUES (?,?,?,?,?)");
 			ps.setString(1, m.getMsg());
-			//ps.setDate(2, (Date) m.getDate_envoi());
+			ps.setString(2, m.getDate_envoi());
 			ps.setBoolean(3, m.isRead());
 			ps.setInt(4, m.getIdSender());
 			ps.setInt(4, m.getIdReceiver());
@@ -44,8 +44,9 @@ public class MessageService implements MessageDao {
 	}
 
 	@Override
-	public void deleteMsg(Message m) {
+	public void deleteMsg(int idMsg) {
 		
+		Message m = new Message();
 		try {
 			
 			PreparedStatement ps = connection.prepareStatement("delete from message where idmsg=?");

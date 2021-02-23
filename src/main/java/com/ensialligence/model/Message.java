@@ -7,7 +7,7 @@ public class Message implements Serializable {
 	
 	private int idMsg;
 	private String msg;
-	private Date date_envoi;
+	private String date_envoi;
 	private boolean isRead;
 	private int idSender;
 	private int idReceiver;
@@ -16,7 +16,7 @@ public class Message implements Serializable {
 		super();
 	}
 	
-	public Message(int idMsg, String msg, Date date_envoi, boolean isRead, int idSender, int idReceiver) {
+	public Message(int idMsg, String msg, String date_envoi, boolean isRead, int idSender, int idReceiver) {
 		super();
 		this.idMsg = idMsg;
 		this.msg = msg;
@@ -42,11 +42,11 @@ public class Message implements Serializable {
 		this.msg = msg;
 	}
 	
-	public Date getDate_envoi() {
+	public String getDate_envoi() {
 		return date_envoi;
 	}
 	
-	public void setDate_envoi(Date date_envoi) {
+	public void setDate_envoi(String date_envoi) {
 		this.date_envoi = date_envoi;
 	}
 	
@@ -80,5 +80,8 @@ public class Message implements Serializable {
 				+ ", idSender=" + idSender + ", idReceiver=" + idReceiver + "]";
 	}
 	
-
+    public boolean test(int i) {
+		return false;
+    	
+    }
 }
