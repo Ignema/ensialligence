@@ -1,5 +1,5 @@
 .createContainer{
-    background-color: #662e39;
+    background-color: #2980b9;
     width: 50rem;
     height: 10rem;
     padding: 1rem;
@@ -47,11 +47,12 @@
 
 .createBtn:hover{
     color: white;
-    background-color: rgb(57, 42, 90);
+    background-color: #6db5e6;
 }
 
 .createBtn:active{
-    color: rgb(130, 81, 245);
+    /* color: rgb(130, 81, 245); */
+    color: #6db5e6;
     background-color: white;
 
 }
@@ -59,18 +60,18 @@
 .createSubmit{
     color: white;
     /* background-color: rgb(57, 42, 90); */
-    background-color: rgb(52, 67, 163);
+    background-color: #6db5e6;
     transition: color .1s ease-in-out;
     cursor: pointer;
 }
 
 .createSubmit:hover{
-    color: rgb(17, 8, 36);
+    color: #6db5e6;
     background-color: white;
 }
 
 .createSubmit:active{
     color: white;
-    background-color: rgb(57, 42, 90);
+    background-color: rgb(15, 123, 173);
 
 }

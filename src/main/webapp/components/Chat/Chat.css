@@ -11,7 +11,7 @@
     height: 4.5rem;
     width: 4.5rem;
     border-radius: 100%;
-    background-color: #4b7560;
+    background-color: #1abc9c;
     color: white;
     margin: 1rem;
     display: flex;
@@ -23,13 +23,13 @@
 }
 
 .chatContainer>ul>li:hover{
-    color: #7ccbff;
+    color: #1abc9c;
     background-color: white;
 }
 
 .chatContainer>ul>li:active{
     color: white;
-    background-color: rgb(57, 42, 90);
+    background-color: #1abc9c;
 }
 
 .chatIcon{

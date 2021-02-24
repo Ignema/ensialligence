@@ -1,5 +1,5 @@
 .suggestionsContainer{
-    background-color: #334743;
+    background-color: #1abc9c;
     color: white;
     display: flex;
     flex-direction: column;
@@ -8,6 +8,10 @@
     height: 43vh;
     border-radius: 70px;
     box-shadow: #0000007a 1px 12px 12px 0px;
+    /* Remove this when you put chat bubbles back */
+    /* ---------------- */
+    margin-top: 5rem; 
+    /* -------------- */
 }
 
 .suggestionsContainer>p{

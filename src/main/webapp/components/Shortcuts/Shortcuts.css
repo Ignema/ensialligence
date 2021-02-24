@@ -6,12 +6,12 @@
 }
 
 .innerShortcuts{
-    background-color: #401d24;
-    color: white;
+    background-color: #1abc9c;
+    color: rgb(245, 244, 244);
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 15vw;
+    width: 20rem;
     height: 80vh;
     border-radius: 120px;
     box-shadow: #0000007a 1px 12px 12px 0px;
@@ -32,7 +32,7 @@
 }
 
 .shortItem:hover{
-    color: rgb(17, 8, 36);
+    color: rgb(188, 238, 201);
 }
 
 .shortItem:active{

@@ -1,11 +1,10 @@
 .headerContainer{
-    background-color: #2e6653;
+    background-color: #3498db;
     color: white;
     display:flex;
     flex-direction:row;
     justify-content:space-between;
     align-items:center;
-    box-shadow: #0000007a 2px 2px 12px 0px;
     position: fixed;
     top: 0;
     width: 100%;
@@ -37,6 +36,28 @@
     transition: color .3s ease-in-out;
 }
 
+.navDrop{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    transition: color .3s ease-in-out;
+}
+
+.navDrop:hover{
+    color: rgb(62, 62, 63);
+}
+
+.navDrop:active{
+   color: white;
+}
+
+.navCaretDrop{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    transition: color .3s ease-in-out;
+}
+
 .navIcon{
     font-size: 2rem;
     padding: .2rem;
@@ -63,7 +84,7 @@
     background-color: #ffffff;
     color: rgb(92, 87, 87);
     height: 2rem;
-    padding: 1rem;
+    padding: .8rem;
 }
 
 .search-input{
@@ -71,6 +92,20 @@
     border: none;
     border-radius: 0 12px 12px 0;
     width: 15rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-input input:first-child{
+    outline: none;
+    border: none;
+    border-radius: 0 12px 12px 0;
+    width: 15rem;
+}
+
+.search-input input:last-child{
+    width: .1px;
 }
 
 .searchIcon{
