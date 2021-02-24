@@ -7,14 +7,38 @@
 
 <display-name>Ensialligence</display-name>
 
-   <!--<servlet>
-    <description></description>
-    <display-name>ServletController</display-name>
-    <servlet-name>ServletController</servlet-name>
-    <servlet-class>com.ensialligence.web.rest.Controller.ServletController</servlet-class>
+   <!-- <servlet>
+        <description></description>
+        <display-name>ServletController</display-name>
+        <servlet-name>ServletController</servlet-name>
+        <servlet-class>com.ensialligence.web.rest.ServletController</servlet-class>
     </servlet>
     <servlet-mapping>
-    <servlet-name>ServletController</servlet-name>
-    <url-pattern>/ServletController</url-pattern>
+        <servlet-name>ServletController</servlet-name>
+        <url-pattern>/ServletController</url-pattern>
     </servlet-mapping>-->
+    <servlet>
+        <servlet-name>Jersey Web Application</servlet-name>
+        <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+        <init-param>
+            <param-name>jersey.config.server.provider.packages</param-name>
+            <param-value>com.ensialligence.web.rest</param-value>
+        </init-param>
+        <!--<init-param>
+            <param-name>jersey.config.server.provider.classnames</param-name>
+            <param-value>org.glassfish.jersey.filter.LoggingFilter;
+                org.glassfish.jersey.media.multipart.MultiPartFeature</param-value>
+        </init-param>-->
+        <init-param>
+            <param-name>jersey.config.server.provider.classnames</param-name>
+            <param-value>org.glassfish.jersey.filter.LoggingFilter;
+                org.glassfish.jersey.moxy.json.MoxyFeature;
+                org.glassfish.jersey.media.multipart.MultiPartFeature</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Jersey Web Application</servlet-name>
+        <url-pattern>/api/v1/*</url-pattern>
+    </servlet-mapping>
 </web-app>

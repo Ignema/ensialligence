@@ -1,4 +1,4 @@
-package com.ensialligence.web.rest.ArticleDAO;
+package com.ensialligence.service;
 
 import java.util.ArrayList;
 import java.util.Base64;
@@ -7,8 +7,9 @@ import java.io.*;
 import java.sql.*;
 
 
-import com.ensialligence.web.rest.model.SingleConnection;
-import com.ensialligence.web.rest.modelArticle.Article;
+import com.ensialligence.dao.ArticleDAO;
+import com.ensialligence.config.SingleConnection;
+import com.ensialligence.model.Article;
 import org.apache.commons.io.FileUtils;
 
 
@@ -24,17 +25,21 @@ public class ArticleDAOImp implements ArticleDAO {
 			//File file = article.getImage();
 		   // FileInputStream input = new FileInputStream(file);
 			Statement stat=connection.createStatement();
-			PreparedStatement ps = connection.prepareStatement("INSERT INTO article (id,titre,categorie,image,video,nbjaimeart) VALUES (?,?,?,?,?,?)");
-			//ps.setInt(1, null);
-			ps.setInt(1, id);
-			ps.setString(2, Titre);
-			ps.setString(3, Categorie);
+			PreparedStatement ps = connection.prepareStatement("INSERT INTO article (idarticle,id,titre,categorie,image,video,nbjaimeart) VALUES (?,?,?,?,?,?,?)");
+			ps.setInt(1, 266);
+			ps.setInt(2, id);
+			ps.setString(3, Titre);
+			ps.setString(4, Categorie);
 			//ps.setBinaryStream(5,(InputStream)input,(int)file.length());
-			byte[] fileContent = FileUtils.readFileToByteArray(image);
+			//byte[] fileContent = FileUtils.readFileToByteArray(image);
 			//String encodedString = Base64.getEncoder().encodeToString(fileContent);
-			ps.setString(4, Base64.getEncoder().encodeToString(fileContent));
-			ps.setString(5, null);
-			ps.setInt(6, nbjaimeart);
+			//ps.setString(4, Base64.getEncoder().encodeToString(fileContent));
+			if(image == null) ps.setString(5, null);
+			else{ byte[] fileContent = FileUtils.readFileToByteArray(image);
+				ps.setString(5, Base64.getEncoder().encodeToString(fileContent));
+			}
+			ps.setString(6, null);
+			ps.setInt(7, nbjaimeart);
 			ps.executeUpdate();
 			
 			ps.close();
@@ -138,28 +143,6 @@ public class ArticleDAOImp implements ArticleDAO {
 			int i = 2;
 			while(rs.next()) {
 				Article article = new Article();
-				/*InputStream input = rs.getBinaryStream(5);
-			 if(input!=null) {
-			  	File img = new File("C:/Users/Lenovo\\Desktop/MyworkSpace/ProjetSIAPP/image"+i+".jpg");
-		        OutputStream output = new FileOutputStream(img);
-		        i++;
-		         int b = 0;
-		         while ((b = input.read()) > -1) {
-		             output.write(b);
-		         }
-		         article.setImage(img);
-		         output.close();
-		         input.close();
-			 }
-			 else article.setImage(null);*/
-			 	/*File image = new File ("C:/Users/Lenovo\\Desktop/MyworkSpace/ProjetSIAPP/image"+i+".jpg");
-				String output= rs.getString("image");
-			 	if(output != null ){
-			 	byte[] decodedBytes = Base64.getDecoder().decode(rs.getString("image"));
-				FileUtils.writeByteArrayToFile(image, decodedBytes);
-				}
-				else article.setImage(null);*/
-
 				article.setIdarticle(rs.getInt("idarticle"));
 				article.setId(rs.getInt("id"));
 				article.setTitre(rs.getString("titre"));
@@ -167,18 +150,15 @@ public class ArticleDAOImp implements ArticleDAO {
 				article.setImage(rs.getString("image"));
 				article.setVideo(null);
 				article.setNbjaimeart(rs.getInt("nbjaimeart"));
-				
 				articles.add(article);
 			}
-
 		}catch(Exception e) {
 			e.printStackTrace();
-		}
-		return articles;
+		}return articles;
 	}
 
 	@Override
-	public boolean updateArticle(int idarticle,Article article) {
+	public String updateArticle(int idarticle,Article article) {
 		boolean cle =  false;
 		try {
 			PreparedStatement prep = connection.prepareStatement("update article set titre='"+article.getTitre()+"',categorie='"+article.getCategorie()+"'  where idarticle="+idarticle+";");
@@ -189,7 +169,7 @@ public class ArticleDAOImp implements ArticleDAO {
 			e.printStackTrace();
 		}
 
-		return true;
+		return "true";
 	}
 
 

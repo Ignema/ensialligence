@@ -1,4 +1,4 @@
-package com.ensialligence.web.rest.model;
+package com.ensialligence.config;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -23,7 +23,5 @@ private static Connection connection;
 	public static Connection getConnection() {
 		return connection;
 	}
-public static void main(String [] atgs) {
-		
-	}
+
 }

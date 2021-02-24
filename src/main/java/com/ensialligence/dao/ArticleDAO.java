@@ -1,6 +1,6 @@
-package com.ensialligence.web.rest.ArticleDAO;
+package com.ensialligence.dao;
 
-import com.ensialligence.web.rest.modelArticle.Article;
+import com.ensialligence.model.Article;
 
 import java.io.File;
 import java.util.List;
@@ -12,6 +12,6 @@ public interface ArticleDAO {
 	public List<Article> chercheParTitre(String titre);
 	public List<Article> chercheParCategorie(String categorie);
 	public List<Article> getAricles();
-	public boolean updateArticle(int idarticle,Article article);
+	public String updateArticle(int idarticle,Article article);
 	public String deleteArticle(int id_article);
 }

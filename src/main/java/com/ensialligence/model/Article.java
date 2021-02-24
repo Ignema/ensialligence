@@ -1,8 +1,9 @@
-package com.ensialligence.web.rest.modelArticle;
+package com.ensialligence.model;
 
 import java.io.File;
+import java.io.Serializable;
 
-public class Article {
+public class Article implements Serializable {
 	
 	
 	private int idarticle;                  
@@ -61,11 +62,11 @@ public class Article {
 	public void setNbjaimeart(int nbjaimeart) {
 		this.nbjaimeart = nbjaimeart;
 	}
-	@Override
+	/*@Override
 	public String toString() {
 		return "Article [idarticle=" + idarticle + ", id=" + id + ", titre=" + titre + ", categorie=" + categorie
 				+ ", image=" + image + ", video=" + video + ", nbjaimeart=" + nbjaimeart + "]";
-	} 
+	} */
     
     
 
