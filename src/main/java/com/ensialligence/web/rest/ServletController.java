@@ -41,22 +41,22 @@ public class ServletController extends HttpServlet {
     @GET
     @Path("/chercherTitre")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response chercherTitre(@QueryParam("titre") String titre) {
+    public List<Article> chercherTitre(@QueryParam("titre") String titre) {
         List<Article> arts =articleService.chercheParTitre(titre);
         for(Article a : arts) {
             System.out.println( "Article [idarticle=" + a.getIdarticle() + ", titre=" + a.getTitre() + ", categorie=" +a.getCategorie()+"]");
         }
-        return Response.ok("name=" + arts).build();
+        return arts;
     }
     @GET
     @Path("/chercheParCategorie")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response chercheParCategorie(@QueryParam("categorie") String categorie) {
+    public List<Article> chercheParCategorie(@QueryParam("categorie") String categorie) {
         List<Article> arts =articleService.chercheParCategorie(categorie);
         for(Article a : arts) {
             System.out.println( "Article [idarticle=" + a.getIdarticle() + ", titre=" + a.getTitre() + ", categorie=" +a.getCategorie()+"]");
         }
-        return Response.ok("name=" + arts).build();
+        return arts;
     }
 
     @GET
@@ -78,24 +78,25 @@ public class ServletController extends HttpServlet {
         return articleService.updateArticle(id,article);
     }
 
-
+    static File img ;
+    @POST
+    @Path("/savefile")
+    //@Consumes(MediaType.MULTIPART_FORM_DATA)
+    @Consumes({"application/x-www-from-urlencoded",MediaType.MULTIPART_FORM_DATA,MediaType.APPLICATION_JSON})
+    public void create (@FormDataParam("file") File image){
+        img = image;
+        //articleService.save(2,"TST","TST",img,null,12);
+    }
     @POST
     @Path("/save")
     @Consumes(MediaType.APPLICATION_JSON)
     public String  create (Article article){
 
         System.out.println( "Article [idarticle=" + article.getIdarticle() + ", titre=" + article.getTitre() + ", categorie=" +article.getCategorie()+"]");
-        articleService.save(article.getId(),article.getTitre(),article.getCategorie(),null,null,article.getNbjaimeart());
+        articleService.save(article.getId(),article.getTitre(),article.getCategorie(),img,null,article.getNbjaimeart());
         return "Succesfully saved !";
     }
-    @POST
-    @Path("/savefile")
-    //@Consumes(MediaType.MULTIPART_FORM_DATA)
-    @Consumes({"application/x-www-from-urlencoded",MediaType.MULTIPART_FORM_DATA,MediaType.APPLICATION_JSON})
-    public void create (@FormDataParam("file") File image  ){
-        // String rst= articleService.save( id,  Titre,  Categorie,  null,  null,  nbjaimeart);
-        articleService.save(2,"hiba","hiba",image,null,20);
-    }
+
 
 /*
     @POST

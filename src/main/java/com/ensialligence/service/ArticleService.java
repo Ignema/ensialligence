@@ -19,17 +19,17 @@ public class ArticleService implements ArticleDAO {
 
         try {
             Statement stat=connection.createStatement();
-            PreparedStatement ps = connection.prepareStatement("INSERT INTO article (idarticle,id,titre,categorie,image,video,nbjaimeart) VALUES (?,?,?,?,?,?,?)");
-            ps.setInt(1, 212);
-            ps.setInt(2, id);
-            ps.setString(3, Titre);
-            ps.setString(4, Categorie);
-            if(image == null) ps.setString(5, null);
+            PreparedStatement ps = connection.prepareStatement("INSERT INTO article (id,titre,categorie,image,video,nbjaimeart) VALUES (?,?,?,?,?,?)");
+           // ps.setInt(1, 212);
+            ps.setInt(1, id);
+            ps.setString(2, Titre);
+            ps.setString(3, Categorie);
+            if(image == null) ps.setString(4, null);
             else{ byte[] fileContent = FileUtils.readFileToByteArray(image);
-            ps.setString(5, Base64.getEncoder().encodeToString(fileContent));
+            ps.setString(4, Base64.getEncoder().encodeToString(fileContent));
             }
-            ps.setString(6, null);
-            ps.setInt(7, nbjaimeart);
+            ps.setString(5, null);
+            ps.setInt(6, nbjaimeart);
             ps.executeUpdate();
 
             ps.close();
