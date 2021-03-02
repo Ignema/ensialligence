@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class Jaime implements Serializable{
 	
+	private int idJaime;
 	private int idUser;
 	private int idArticle;
 	
@@ -11,8 +12,9 @@ public class Jaime implements Serializable{
 		super();
 	}
 	
-	public Jaime(int idUser, int idArticle) {
+	public Jaime(int idJaime, int idUser, int idArticle) {
 		super();
+		this.idJaime = idJaime;
 		this.idArticle = idArticle;
 		this.idUser = idUser;
 	}
@@ -33,10 +35,19 @@ public class Jaime implements Serializable{
 		this.idUser = idUser;
 	}
 
+	public int getIdJaime() {
+		return idJaime;
+	}
+
+	public void setIdJaime(int idJaime) {
+		this.idJaime = idJaime;
+	}
+
 	@Override
 	public String toString() {
-		return "Jaime [idUser=" + idUser + ", idArticle=" + idArticle + "]";
+		return "Jaime [idJaime=" + idJaime + ", idUser=" + idUser + ", idArticle=" + idArticle + "]";
 	}
+	
 	
 	
 }
