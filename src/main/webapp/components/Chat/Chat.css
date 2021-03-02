@@ -11,15 +11,27 @@
     height: 4.5rem;
     width: 4.5rem;
     border-radius: 100%;
-    background-color: #514B4B;
+    background-color: #1abc9c;
+    color: white;
     margin: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: .3rem;
+    transition: background-image .3s ease-in-out;
+    cursor: pointer;
+}
+
+.chatContainer>ul>li:hover{
+    color: #1abc9c;
+    background-color: white;
+}
+
+.chatContainer>ul>li:active{
+    color: white;
+    background-color: #1abc9c;
 }
 
 .chatIcon{
-    color: white;
-    font-size: 2.4rem;
+    font-size: 1.9rem;
 }
