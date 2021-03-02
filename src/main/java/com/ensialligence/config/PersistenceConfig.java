@@ -10,15 +10,17 @@ public class PersistenceConfig {
 	static {
 		try {
 			String driverClass = "com.mysql.cj.jdbc.Driver";
-			String url = "jdbc:mysql://localhost/socialnetwork?serverTimezone=UTC";
+			String BDD="app_jee";
+			String url = "jdbc:mysql://localhost:3306/" + BDD;
 			String user = "root";
-			String password = "140320";
+			String password = "";
 			
 			Class.forName(driverClass);
 			connection = DriverManager.getConnection(url, user, password);
 			System.out.println("Connected to db...");
 
 		} catch(Exception e) {
+			System.out.println("erreur de connexion...");
 			e.printStackTrace();
 		}
 	}
