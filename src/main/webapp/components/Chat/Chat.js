@@ -1,5 +1,6 @@
 import './Chat.css';
 import { FaUserAlt, FaElementor } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Chat = () => {
     return (
@@ -12,7 +13,9 @@ const Chat = () => {
                     <FaUserAlt className="chatIcon" />  
                 </li>
                 <li>
-                    <FaElementor className="chatIcon" />  
+                    <Link to="/chat"> 
+                        <FaElementor className="chatIcon" />  
+                    </Link>
                 </li>
             </ul>
         </div>

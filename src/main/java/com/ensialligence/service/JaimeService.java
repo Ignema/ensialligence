@@ -9,7 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 
-public class JaimeDaoService implements JaimeDao {
+public class JaimeService implements JaimeDao {
 	
 	Connection connection= PersistenceConfig.getConnection();
 
@@ -31,18 +31,17 @@ public class JaimeDaoService implements JaimeDao {
 	}
 
 	@Override
-	public void removeJaime(Jaime j) {
+	public void removeJaime(int idJaime) {
 		try {
 			
-			PreparedStatement ps = connection.prepareStatement("delete from jaime where id=? and idarticle=?");
-			ps.setInt(1, j.getIdUser());
-			ps.setInt(2, j.getIdArticle());
+			PreparedStatement ps = connection.prepareStatement("delete from jaime where idjaime=?");
+			ps.setInt(1, idJaime);
 			ps.executeUpdate();
 			ps.close();
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} 
-	}		
+	}	
 	
 }
