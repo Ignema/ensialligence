@@ -1,0 +1,20 @@
+.projectsPageContainer{
+    padding: 8rem 5rem 0 5rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.projectsPageTitle{
+    font-size: 2rem;
+    transition: color .1s ease-in-out;
+    cursor: pointer;
+}
+
+.projectsPageTitle:hover{
+    color: rgb(158, 157, 240);
+}
+
+.projectsPageTitle:active{
+    color: rgb(255, 255, 255);
+}

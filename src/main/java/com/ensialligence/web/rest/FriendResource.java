@@ -1,6 +1,5 @@
 package com.ensialligence.web.rest;
 
-
 import com.ensialligence.model.Friend;
 import com.ensialligence.service.FriendService;
 
