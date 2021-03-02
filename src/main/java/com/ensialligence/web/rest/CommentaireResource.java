@@ -5,7 +5,6 @@ import com.ensialligence.service.CommentaireService;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
-import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -19,43 +18,43 @@ import java.util.List;
 @Path("/")
 @Produces(MediaType.APPLICATION_JSON+"; charset=utf-8")
 public class CommentaireResource {
-	
-	CommentaireService com = new CommentaireService();
-	
-	@GET
+
+    CommentaireService com = new CommentaireService();
+
+    @GET
     @Path("/articles/{idArticle}/comments")
-	public List<Commentaire> comsByArticle(@PathParam (value="idArticle")int idArticle){
-		return com.getComments(idArticle);
-		
-	}
-	
-	@GET
+    public List<Commentaire> comsByArticle(@PathParam (value="idArticle")int idArticle){
+        return com.getComments(idArticle);
+
+    }
+
+    @GET
     @Path("/comments/{idCom}")
-	public Commentaire comById(@PathParam (value="idCom")int idCom){
-		return com.getCommentById(idCom);
-		
-	}
-	
-	@POST
-	@Path("/comments")
-	//@Consumes(MediaType.APPLICATION_JSON)
-	public Commentaire addCom(Commentaire c) {
-		return com.addComment(c);
-	}
-	
-	@DELETE
-	@Path("/comments/{idCom}")
-	@Consumes({MediaType.APPLICATION_FORM_URLENCODED, MediaType.MULTIPART_FORM_DATA, MediaType.APPLICATION_JSON})
-	public void deleteCom(@PathParam(value="idCom")int idCom) {
-		com.deleteComment(idCom);
-	}
-	
-	@PUT
-	@Path("/comments")
-	public Commentaire updateCom(Commentaire c) {
-		return com.updateComment(c);
-	}
-	
-	
-	
+    public Commentaire comById(@PathParam (value="idCom")int idCom){
+        return com.getCommentById(idCom);
+
+    }
+
+    @POST
+    @Path("/comments")
+    //@Consumes(MediaType.APPLICATION_JSON)
+    public Commentaire addCom(Commentaire c) {
+        return com.addComment(c);
+    }
+
+    @DELETE
+    @Path("/comments/{idCom}")
+    @Consumes({MediaType.APPLICATION_FORM_URLENCODED, MediaType.MULTIPART_FORM_DATA, MediaType.APPLICATION_JSON})
+    public void deleteCom(@PathParam(value="idCom")int idCom) {
+        com.deleteComment(idCom);
+    }
+
+    @PUT
+    @Path("/comments")
+    public Commentaire updateCom(Commentaire c) {
+        return com.updateComment(c);
+    }
+
+
+
 }

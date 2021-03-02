@@ -4,7 +4,7 @@ import com.ensialligence.model.Jaime;
 
 public interface JaimeDao {
 
-	Jaime addJaime(Jaime j);
-	
-	void removeJaime(int idJaime);
+    Jaime addJaime(Jaime j);
+
+    void removeJaime(int idJaime);
 }

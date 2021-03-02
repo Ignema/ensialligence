@@ -16,28 +16,28 @@ import java.util.List;
 @Path("/")
 @Produces(MediaType.APPLICATION_JSON+"; charset=utf-8")
 public class FriendResource {
-	
-	FriendService friend = new FriendService();
-	
-	@POST
-	@Path("/friends")
-	//@Consumes(MediaType.APPLICATION_JSON)
-	public Friend addFriend(Friend f) {
-		return friend.addFriend(f);
-	}
-	
-	@DELETE
-	@Path("/friends/{idFriend}")
-	@Consumes({MediaType.APPLICATION_FORM_URLENCODED, MediaType.MULTIPART_FORM_DATA, MediaType.APPLICATION_JSON})
-	public void deleteFriend(@PathParam(value="idFriend")int idFriend) {
-		friend.deleteFriend(idFriend);
-	}
-	
-	@GET
+
+    FriendService friend = new FriendService();
+
+    @POST
+    @Path("/friends")
+    //@Consumes(MediaType.APPLICATION_JSON)
+    public Friend addFriend(Friend f) {
+        return friend.addFriend(f);
+    }
+
+    @DELETE
+    @Path("/friends/{idFriend}")
+    @Consumes({MediaType.APPLICATION_FORM_URLENCODED, MediaType.MULTIPART_FORM_DATA, MediaType.APPLICATION_JSON})
+    public void deleteFriend(@PathParam(value="idFriend")int idFriend) {
+        friend.deleteFriend(idFriend);
+    }
+
+    @GET
     @Path("/user/{idUser}/friends")
-	public List<Friend> friendsByIdUser(@PathParam (value="idUser")int idUser){
-		return friend.getFriends(idUser);
-		
-	}
+    public List<Friend> friendsByIdUser(@PathParam (value="idUser")int idUser){
+        return friend.getFriends(idUser);
+
+    }
 
 }

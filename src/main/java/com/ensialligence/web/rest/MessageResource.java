@@ -15,21 +15,21 @@ import javax.ws.rs.core.MediaType;
 @Path("/")
 @Produces(MediaType.APPLICATION_JSON+"; charset=utf-8")
 public class MessageResource {
-	
-	MessageService msg = new MessageService();
-	
-	@POST
-	@Path("/msgs")
-	//@Consumes(MediaType.APPLICATION_JSON)
-	public Message addMsg(Message m) {
-		return msg.saveMsg(m);
-	}
-	
-	@DELETE
-	@Path("/msgs/{idMsg}")
-	@Consumes({MediaType.APPLICATION_FORM_URLENCODED, MediaType.MULTIPART_FORM_DATA, MediaType.APPLICATION_JSON})
-	public void deleteMsg(@PathParam(value="idMsg")int idMsg) {
-		msg.deleteMsg(idMsg);
-	}
+
+    MessageService msg = new MessageService();
+
+    @POST
+    @Path("/msgs")
+    //@Consumes(MediaType.APPLICATION_JSON)
+    public Message addMsg(Message m) {
+        return msg.saveMsg(m);
+    }
+
+    @DELETE
+    @Path("/msgs/{idMsg}")
+    @Consumes({MediaType.APPLICATION_FORM_URLENCODED, MediaType.MULTIPART_FORM_DATA, MediaType.APPLICATION_JSON})
+    public void deleteMsg(@PathParam(value="idMsg")int idMsg) {
+        msg.deleteMsg(idMsg);
+    }
 
 }
