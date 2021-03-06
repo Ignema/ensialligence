@@ -1,6 +1,6 @@
 package com.ensialligence.service;
 
-import com.ensialligence.config.SingleConnection;
+import com.ensialligence.config.PersistenceConfig;
 import com.ensialligence.dao.ArticleDAO;
 import com.ensialligence.model.Article;
 import org.apache.commons.io.FileUtils;
@@ -12,7 +12,7 @@ import java.util.Base64;
 import java.util.List;
 
 public class ArticleService implements ArticleDAO {
-    Connection connection = SingleConnection.getConnection();
+    Connection connection = PersistenceConfig.getConnection();
     List<Article> articles = new ArrayList<>();
     @Override
     public String save(int id, String Titre, String Categorie, File image, File video, int nbjaimeart) {
