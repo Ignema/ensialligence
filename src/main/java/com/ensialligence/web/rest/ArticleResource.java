@@ -18,9 +18,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-//@WebServlet(name="ServletController",value="/hello")
 @Path("/")
-public class ServletController extends HttpServlet {
+public class ArticleResource extends HttpServlet {
 
 
     ArticleService articleService = new ArticleService();

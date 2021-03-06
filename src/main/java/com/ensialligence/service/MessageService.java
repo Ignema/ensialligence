@@ -12,7 +12,7 @@ import java.sql.SQLException;
 
 public class MessageService implements MessageDao {
 
-	Connection connection= PersistenceConfig.getConnection();
+	Connection connection= PersistenceConfig.connect();
 
 	@Override
 	public Message saveMsg(Message m) {

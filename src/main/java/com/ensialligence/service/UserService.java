@@ -9,16 +9,16 @@ import java.util.HashSet;
 
 import com.ensialligence.config.PersistenceConfig;
 import com.ensialligence.dao.UserDao;
-import com.ensialligence.model.Commentaire;
 import com.ensialligence.model.User;
 
 public class UserService implements UserDao {
-	Connection connection= null;
+	
+	Connection connection = PersistenceConfig.connect();
 
 	@Override
 	public boolean addUser(User user) {
 		try {
-			connection= PersistenceConfig.getConnection();
+			
 			
 			PreparedStatement ps = connection.prepareStatement("INSERT INTO `utilisateur`"
 																+ "(`username`, `password`, `firstname`, `lastname`, `email`, `date_nais`)"
@@ -44,7 +44,6 @@ public class UserService implements UserDao {
 	@Override
 	public User findUser(String userName, String password) {
 		
-		connection= PersistenceConfig.getConnection();
 		
 		try {
 			
@@ -79,7 +78,6 @@ public class UserService implements UserDao {
 	public boolean followUser(Long idUser1, Long idUser2) {
 		
 		try {
-			connection= PersistenceConfig.getConnection();
 			
 			PreparedStatement ps = connection.prepareStatement("INSERT INTO `friend`(`user_1`, `user_2`) VALUES (?,?)");
 			ps.setLong(1, idUser1);
@@ -96,7 +94,7 @@ public class UserService implements UserDao {
 
 	@Override
 	public ArrayList<User> listFriends(Long idUser) {
-		connection= PersistenceConfig.getConnection();
+
 		ArrayList<User> listUser=new ArrayList<>();
 		HashSet<Long> listId=new HashSet<>();
 		try {

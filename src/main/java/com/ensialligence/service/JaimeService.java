@@ -11,7 +11,7 @@ import java.sql.SQLException;
 
 public class JaimeService implements JaimeDao {
 
-	Connection connection= PersistenceConfig.getConnection();
+	Connection connection= PersistenceConfig.connect();
 
 	@Override
 	public Jaime addJaime(Jaime j) {

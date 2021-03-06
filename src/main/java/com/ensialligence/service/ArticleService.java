@@ -12,15 +12,17 @@ import java.util.Base64;
 import java.util.List;
 
 public class ArticleService implements ArticleDAO {
-    Connection connection = PersistenceConfig.getConnection();
-    List<Article> articles = new ArrayList<>();
+
+	Connection connection = new PersistenceConfig().connect(); 
+
+
+	List<Article> articles = new ArrayList<>();
     @Override
     public String save(int id, String Titre, String Categorie, File image, File video, int nbjaimeart) {
 
         try {
             Statement stat=connection.createStatement();
             PreparedStatement ps = connection.prepareStatement("INSERT INTO article (id,titre,categorie,image,video,nbjaimeart) VALUES (?,?,?,?,?,?)");
-           // ps.setInt(1, 212);
             ps.setInt(1, id);
             ps.setString(2, Titre);
             ps.setString(3, Categorie);
