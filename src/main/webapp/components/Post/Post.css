@@ -1,14 +1,29 @@
 .postContainer{
+    position: relative;
     padding: 1rem;
-    margin-bottom: 2rem;
-    background-color: white;
-    box-shadow: #0000007a 0px 6px 16px 0px;
+    background-color: #ffffff;
+    box-shadow: #0000007a 3px 6px 12px 0px;
+    border: solid 1.5px #777785bd;
     border-radius: 15px;
     width: 100%;
+    transition: all .3s ease-in-out;
+    z-index: 1;
+    margin-bottom: 2rem;
+}
+
+.postContainer:hover {
+    background-color: #3498db;
+    border: solid 1.5px white;
+    color: white;
+}
+
+.postContainer:hover > .postMeta > .postIcons {
+    color: white;
 }
 
 .postBody{
     word-break: break-all;
+    font-weight: bold;
 }
 
 .postMeta, .postPoster, .postIcons{
@@ -24,14 +39,25 @@
 
 .posterProfile{
     position: absolute;
-    right: 38rem;
+    right: 48rem;
     top: -1rem;
-    box-shadow: #0000007a 0px 6px 16px 0px;
-    background-color: #514B4B;
+    box-shadow: #0000007a 3px 6px 12px 0px;
+    background-color: white;
     width: 5rem;
     height: 5rem;
     border-radius: 100%;
+    transition: background-color .2s ease-in-out;
+    cursor: pointer;
 }
+
+.posterProfile:hover{
+    background-color: rgb(75, 76, 77);
+}
+
+.posterProfile:active{
+    background-color: rgb(211, 219, 225);
+}
+
 
 .postPoster{
     margin-left: 3rem;
@@ -43,13 +69,137 @@
     font-size: 1.2rem;
     font-weight: bolder;
     margin-right: 1rem;
+    transition: color .1s ease-in-out;
+    cursor: pointer;
+}
+
+.posterName:hover{
+    color: rgb(58, 61, 63);
+}
+
+.posterName:active{
+    color: rgb(211, 219, 225);
 }
 
 .postIcons{
-    color: #514B4B;
+    color: #353232;
     font-size: 1.4rem;
 }
 
 .postIcon{
     margin-left: 1rem;
+    transition: color .1s ease-in-out;
+    cursor: pointer;
+}
+
+.postIcon:first-child:hover{
+    color: rgb(220, 68, 68);
+}
+
+.postIcon:nth-child(2):hover{
+    color: rgb(38, 69, 207);
+}
+
+.postIcon:nth-child(3):hover{
+    color: rgb(241, 161, 39);
+}
+
+.postIcon:nth-child(n):active{
+    color: rgb(255, 255, 255);
+}
+
+.postHearted{
+    color: rgb(220, 68, 68);
+}
+
+.postDate{
+    margin-top: .1rem;
+    margin-left: 1rem;
+    font-size: .7rem;
+    font-weight: bolder;
+    color: #c0baba;
+}
+
+.postCommentSection{
+    background-color: #51d69f;
+    width: 90%;
+    height: auto;
+    border-radius: 10px;
+    z-index: -1;
+    margin-left: 1rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    transform: translateY(-3rem);
+    transition: all .4s ease-in-out;
+    /* display: none; */
+}
+
+.postCommentInsert{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-gap: 1rem;
+}
+
+.postCommentInsert input:first-child{
+    font-weight: bolder;
+    background-color: #ffffff;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+
+.postCommentInsert input:last-child{
+    font-weight: bolder;
+    background-color: #ffffff;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    transition: all .1s ease-in-out;
+}
+
+.postCommentInsert input:last-child:hover{
+    background-color: #107e47;
+    color: white;
+}
+
+.postCommentInsert input:last-child:active{
+    background-color: #eaf1ee;
+    color: #107e47;
+}
+
+.postComment{
+    font-weight: bolder;
+    background-color: transparent;
+    color: #f0e9e9;
+    padding: 1rem;
+    margin: 1rem .5rem .1rem .5rem;
+    border-radius: 10px;
+    border: solid 2px #f0e9e9;
+    transition: all .5s ease-in-out;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.postComment:hover{
+    background-color: #f0e9e9;
+    color: #51d69f;
+}
+
+.postCommentOwner{
+    font-weight: bolder;
+    color: antiquewhite;
+    background: royalblue;
+    padding: 0.7rem;
+    border-radius: 10px;
+    margin-right: 1rem;
+}
+
+.postComment .postHearted{
+    color: royalblue;
 }

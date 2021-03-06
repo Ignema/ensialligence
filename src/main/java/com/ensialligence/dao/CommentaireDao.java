@@ -8,9 +8,11 @@ public interface CommentaireDao {
 	
 	Commentaire addComment(Commentaire c);
 	
+	Commentaire getCommentById(int idCom);
+	
 	List<Commentaire> getComments(int idArticle);
 	
 	Commentaire updateComment(Commentaire c);
 	
-	void deleteComment(Commentaire c);
+	void deleteComment(int idCom);
 }

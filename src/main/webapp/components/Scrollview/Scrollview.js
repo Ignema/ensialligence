@@ -10,7 +10,7 @@ const Scrollview = () => {
     return (
         <div className="scrollviewContainer">
             <CreatePost posts={posts} setPosts={setPosts}/>
-            <PostList posts={posts} />
+            <PostList posts={posts} setPosts={setPosts}/>
         </div>
     )
 }

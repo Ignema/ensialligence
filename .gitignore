@@ -30,3 +30,4 @@ PersistenceConfig.java
 .idea/
 *.iml
 /target
+/bin/
