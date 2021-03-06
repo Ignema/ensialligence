@@ -1,9 +1,24 @@
 FROM tomcat:latest
 
-# RUN adduser tomcat; chown -R tomcat:tomcat /usr/local/tomcat
+RUN apt update
+RUN apt install -y sudo
+RUN sudo apt install -y nodejs
 
-# USER tomcat
+WORKDIR /app
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+RUN npm install -g serve
+RUN npm build
+RUN serve -s build
+
 COPY target/Ensialligence-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/
 
-CMD ["catalina.sh", "run"]
+ENV PORT=8080
 
+EXPOSE 8080
+
+CMD ["catalina.sh", "run"]

@@ -1,0 +1,15 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "8080:8080"
+  db:
+    image: "mysql"
+    environment: 
+      MYSQL_ROOT_PASSWORD: 12345
+    volumes:
+      - db-data:/data
+
+volumes:
+  db-data:
