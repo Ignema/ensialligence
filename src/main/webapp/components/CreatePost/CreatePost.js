@@ -2,7 +2,7 @@ import './CreatePost.css';
 import { useState } from "react"
 import { FaUserCircle } from 'react-icons/fa';
 
-const CreatePost = ({posts, setPosts}) => {
+const CreatePost = ({addPost}) => {
 
     const [textareaValue, setTextareaValue] = useState("")
 
@@ -19,7 +19,12 @@ const CreatePost = ({posts, setPosts}) => {
                     <input className="createBtn" type="button" value="Link"></input>
                     <input className="createBtn" type="button" value="Upload"></input>
                     <input className="createBtn createSubmit" type="button" value="Submit" onClick={() => { 
-                            setPosts([{id: 0, body: textareaValue, liked: false, comments: []}, ...posts.map(post => ({id: post.id + 1, body: post.body, liked: post.liked, comments: post.comments}))])
+                            addPost({
+                                titre: "title",
+                                categorie: "article", 
+                                nbjaimeart: 20,
+                                video: textareaValue
+                            })
                             setTextareaValue("")
                         }}></input>
                 </div>

@@ -5,7 +5,17 @@ const ProfilePage = () => {
 
     let posts = []
     for(let i = 0; i < 30; i++){
-        posts.push({id: i, body: "Post " + (i+1), liked: false, comments: [{owner: "Yassir", body: "Random Comment", liked: false}]})
+        posts.push({
+            titre: "title",
+            categorie: "article", 
+            nbjaimeart: 20,
+            video: "Post " + (i+1),
+            comments: [{
+                owner: localStorage.getItem('username'), 
+                body: "Random Comment", 
+                nbJaimeCom: 33
+            }]
+        })
     }
 
     return (
@@ -19,8 +29,8 @@ const ProfilePage = () => {
             </div>
             <div className="profilePageDetailsContainer">
                 <div className="profilePageDetails">
-                    <p><span>Firstname: </span>Yassir</p><hr/>
-                    <p><span>Lastname: </span>Douslimi</p><hr/>
+                    <p><span>Username: </span>{localStorage.getItem('username')}</p><hr/>
+                    <p><span>Sexe: </span>male</p><hr/>
                     <p><span>Age: </span>21</p><hr/>
                     <p><span>City: </span>Kenitra</p><hr/>
                     <p><span>Posts: </span>30</p><hr/>
