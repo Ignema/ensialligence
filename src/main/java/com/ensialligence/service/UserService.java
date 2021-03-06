@@ -16,12 +16,11 @@ import com.ensialligence.model.User;
 
 public class UserService implements UserDao {
 	Connection connection= null;
+	private static final SecureRandom secureRandom = new SecureRandom(); //threadsafe
+	private static final Base64.Encoder base64Encoder = Base64.getUrlEncoder(); //threadsafe
 	public UserService() {
 		connection= PersistenceConfig.getConnection();
 	}
-	
-	private static final SecureRandom secureRandom = new SecureRandom(); //threadsafe
-	private static final Base64.Encoder base64Encoder = Base64.getUrlEncoder(); //threadsafe
 
 	public static String generateNewToken() {
 	    byte[] randomBytes = new byte[24];
