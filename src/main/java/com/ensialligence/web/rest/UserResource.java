@@ -41,7 +41,7 @@ public class UserResource {
     @Path("/addUser")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes({"application/x-www-form-urlencoded","multipart/form-data",MediaType.APPLICATION_JSON})
-    public boolean addUser(@FormParam("username") String username,
+    public String addUser(@FormParam("username") String username,
     					   @FormParam("password") String password,
     					   @FormParam("firstname") String firstname,
     					   @FormParam("lastname")String lastname,
@@ -50,20 +50,4 @@ public class UserResource {
     	return userService.addUser(new User(username,password,firstname,lastname,email,date_nais));
     }
     
-    @GET
-    @Path("/user/1")
-    @Produces("application/json")
-    public User getUser2() {
-        return new User(1l, "med", "123","med", "edd", "med@gmail.com", "12455544545");
-    }
-
-    @GET
-    @Path("/users")
-    @Produces("application/json")
-    public ArrayList<User> getListUsers() {
-        ArrayList<User> users = new ArrayList<>();
-        users.add(new User(1l, "med", "123","med", "edd", "med@gmail.com", "12455544545"));
-        users.add(new User(2l, "med", "123","med", "edd", "med@gmail.com", "12455544545"));
-        return users;
-    }
 }

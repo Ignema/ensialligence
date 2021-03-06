@@ -18,7 +18,7 @@ public interface UserDao {
 	 * @param user c'est l'utilieateur qu'on va ajouté
 	 * @return true si il est bien ajouter; false sinon
 	 */
-	boolean addUser (User user);
+	String addUser (User user);
 	
 	/**
 	 * 
