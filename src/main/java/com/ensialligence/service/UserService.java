@@ -12,21 +12,17 @@ import java.util.HashSet;
 import com.ensialligence.config.PersistenceConfig;
 import com.ensialligence.dao.UserDao;
 import com.ensialligence.model.Commentaire;
+import com.ensialligence.model.Token;
 import com.ensialligence.model.User;
+import com.ensialligence.model.UserPlusToken;
 
 public class UserService implements UserDao {
 	Connection connection= null;
-	private static final SecureRandom secureRandom = new SecureRandom(); //threadsafe
-	private static final Base64.Encoder base64Encoder = Base64.getUrlEncoder(); //threadsafe
+	
 	public UserService() {
 		connection= PersistenceConfig.getConnection();
 	}
 
-	public static String generateNewToken() {
-	    byte[] randomBytes = new byte[24];
-	    secureRandom.nextBytes(randomBytes);
-	    return base64Encoder.encodeToString(randomBytes);
-	}
 
 	@Override
 	public String addUser(User user) {
@@ -45,7 +41,7 @@ public class UserService implements UserDao {
 			ps.executeUpdate();
 			
 			ps.close();
-			return generateNewToken();
+			return  Token.generateNewToken();
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -55,7 +51,7 @@ public class UserService implements UserDao {
 	}
 
 	@Override
-	public User findUser(String userName, String password) {
+	public UserPlusToken findUser(String userName, String password) {
 		
 		//connection= PersistenceConfig.getConnection();
 		
@@ -76,7 +72,7 @@ public class UserService implements UserDao {
 									rs.getString("lastname"), 
 									rs.getString("email"), 
 									rs.getString("date_nais"));
-				return user;
+				return new UserPlusToken(user);
 			}
 			
 			ps.close();
@@ -85,7 +81,7 @@ public class UserService implements UserDao {
 			e.printStackTrace();
 		}
 		
-		return new User();
+		return new UserPlusToken();
 	}
 
 	@Override

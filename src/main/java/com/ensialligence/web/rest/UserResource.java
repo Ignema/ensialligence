@@ -2,6 +2,7 @@ package com.ensialligence.web.rest;
 
 import com.ensialligence.config.PersistenceConfig;
 import com.ensialligence.model.User;
+import com.ensialligence.model.UserPlusToken;
 import com.ensialligence.service.UserService;
 
 import javax.ws.rs.Consumes;
@@ -25,7 +26,7 @@ public class UserResource {
     @GET
     @Path("/user")
     @Produces("application/json")
-    public User getUser(@QueryParam(value="username") String username,@QueryParam(value="password") String password) {
+    public UserPlusToken getUser(@QueryParam(value="username") String username,@QueryParam(value="password") String password) {
         return userService.findUser(username, password);
     }
     
