@@ -5,6 +5,6 @@ CREATE TABLE `utilisateur` (
   `firstname` varchar(30) DEFAULT NULL,
   `lastname` varchar(30) DEFAULT NULL,
   `email` varchar(30) DEFAULT NULL,
-  `date_nais` date DEFAULT NULL,
+  `date_nais` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
