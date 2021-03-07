@@ -1,0 +1,58 @@
+@startuml
+
+
+class User{
+    -username : string
+    -password : string
+    -firstName : string
+    -lastName : string
+    -email : string
+    -date_naiss : datetime
+    }
+    
+
+class Message{
+    -Msg : string
+    -date_envoi : datetime
+    -isRead : boolean
+    }
+    
+    
+class Article{
+    -titre : string
+    -categorie : string
+    -image
+    -video
+    -nbreJaimeArt : int
+    }
+
+class Friend
+class Reagir
+class Jaime
+
+class Commentaire{
+    -comment : string
+    -nbJaimeCom : int
+    }
+
+
+
+<> diamond
+Message . diamond
+diamond - "1" User
+diamond - "*" User : envoyer
+
+<> diamond1
+Friend .. diamond1
+diamond1 -- "1" User
+diamond1 -- "*" User : isFriend
+
+User "1" -- "0..*" Article : poster
+(User, Article) . Reagir
+
+Reagir <|-- Jaime
+Reagir <|-- Commentaire
+
+
+
+@enduml

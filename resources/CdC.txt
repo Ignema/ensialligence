@@ -1,0 +1,28 @@
+Le projet dont il est question consiste à implémenter un site web sous forme de réseau social qui offre
+principalement la possibilité d’interagir avec une communauté regroupée par ses points d’intérêt communs, et
+ce notamment par la création de publications qui peuvent être partagées avec d’autres utilisateurs.
+
+Les premières versions devraient se concentrer principalement sur les articles textuels avec des articles
+multimédias à venir plus tard.
+
+Le projet devrait également permettre aux utilisateurs d’interagir les uns avec les autres en réagissant à
+leurs posts ou articles à travers des likes ou mentions "j’aime", en les commentant ou en les partageant, ainsi
+que de pouvoir envoyer des demandes d’amitié dans le but de discuter dans la section du chat avec leurs amis.
+
+Il y aura également de nombreux éléments d’interface utilisateur qui amélioreront l’expérience d’apprentissage et de recherche de l’utilisateur.
+
+Notre application vise en premier lieu les utilisateurs passionnés, qui ont soif de connaissances, de découverte
+et de partage.
+
+
+Notre site web doit donc répondre aux besoins fonctionnels suivants :
+
+— Authentification ;
+— Création de posts, publications, articles ;
+— Réaction à ces derniers à travers des mentions "j’aime" ;
+— Ajout de commentaires sur les publications ;
+— Recherche d’utilisateurs ;
+— Envoi d’invitations ou de demandes d’amitié afin d’ajouter d’autres utilisateurs en tant qu’amis ;
+— Visite de profils ;
+— Messagerie (chat) ;
+
