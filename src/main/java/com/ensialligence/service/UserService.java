@@ -1,24 +1,33 @@
 package com.ensialligence.service;
 
+import java.security.SecureRandom;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.HashSet;
 
 import com.ensialligence.config.PersistenceConfig;
 import com.ensialligence.dao.UserDao;
 import com.ensialligence.model.Commentaire;
+import com.ensialligence.model.Token;
 import com.ensialligence.model.User;
+import com.ensialligence.model.UserPlusToken;
 
 public class UserService implements UserDao {
 	Connection connection= null;
+	
+	public UserService() {
+		connection= PersistenceConfig.getConnection();
+	}
+
 
 	@Override
-	public boolean addUser(User user) {
+	public String addUser(User user) {
 		try {
-			connection= PersistenceConfig.getConnection();
+			//connection= PersistenceConfig.getConnection();
 			
 			PreparedStatement ps = connection.prepareStatement("INSERT INTO `utilisateur`"
 																+ "(`username`, `password`, `firstname`, `lastname`, `email`, `date_nais`)"
@@ -32,19 +41,19 @@ public class UserService implements UserDao {
 			ps.executeUpdate();
 			
 			ps.close();
-			return true;
+			return  Token.generateNewToken();
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-			return false;
+			return null;
 		 		
 	}
 
 	@Override
-	public User findUser(String userName, String password) {
+	public UserPlusToken findUser(String userName, String password) {
 		
-		connection= PersistenceConfig.getConnection();
+		//connection= PersistenceConfig.getConnection();
 		
 		try {
 			
@@ -63,7 +72,7 @@ public class UserService implements UserDao {
 									rs.getString("lastname"), 
 									rs.getString("email"), 
 									rs.getString("date_nais"));
-				return user;
+				return new UserPlusToken(user);
 			}
 			
 			ps.close();
@@ -72,14 +81,14 @@ public class UserService implements UserDao {
 			e.printStackTrace();
 		}
 		
-		return new User();
+		return new UserPlusToken();
 	}
 
 	@Override
 	public boolean followUser(Long idUser1, Long idUser2) {
 		
 		try {
-			connection= PersistenceConfig.getConnection();
+			//connection= PersistenceConfig.getConnection();
 			
 			PreparedStatement ps = connection.prepareStatement("INSERT INTO `friend`(`user_1`, `user_2`) VALUES (?,?)");
 			ps.setLong(1, idUser1);
@@ -96,7 +105,7 @@ public class UserService implements UserDao {
 
 	@Override
 	public ArrayList<User> listFriends(Long idUser) {
-		connection= PersistenceConfig.getConnection();
+		//connection= PersistenceConfig.getConnection();
 		ArrayList<User> listUser=new ArrayList<>();
 		HashSet<Long> listId=new HashSet<>();
 		try {
