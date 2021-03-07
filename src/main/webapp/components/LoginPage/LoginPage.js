@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 
 async function login(credentials) {
-    return fetch('http://localhost:8080/login', {
+    return fetch('http://localhost:8080/Ensialligence_war/api/v1/getUser', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -12,17 +12,17 @@ async function login(credentials) {
       body: JSON.stringify(credentials)
     })
     .then(data => data.json())
-    .catch(() => ({"token": "12345"}))
+    // .catch(() => ({"token": "a54asd15asd54"}))
 }
 
 const LoginPage = ({setToken}) => {
 
-    const [email, setEmail] = useState();
+    const [username, setUsername] = useState();
     const [password, setPassword] = useState();
 
     const handleSubmit = async e => {
         e.preventDefault();
-        const token = await login({email, password});
+        const token = await login({username, password});
         setToken(token);
     }
 
@@ -35,8 +35,8 @@ const LoginPage = ({setToken}) => {
                     <p>Welcome  back! Please login to your account.</p>
                 </div>
                 <form className="loginForm" onSubmit={handleSubmit}>
-                    <label className="loginEmailLabel" htmlFor="email">Email Address</label>
-                    <input className="loginEmailInput" type="email" placeholder="Type your email..." name="email" onChange={e => setEmail(e.target.value)}></input>
+                    <label className="loginEmailLabel" htmlFor="username">Username</label>
+                    <input className="loginEmailInput" type="text" placeholder="Type your username..." name="username" onChange={e => setUsername(e.target.value)}></input>
                     <label className="loginPasswordLabel" htmlFor="password">Password</label>
                     <input className="loginPasswordInput" type="password" placeholder="Type your password..." name="password" onChange={e => setPassword(e.target.value)}></input>
                     <div className="loginMeta">
