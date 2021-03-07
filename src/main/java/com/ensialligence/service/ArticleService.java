@@ -15,28 +15,29 @@ public class ArticleService implements ArticleDAO {
     Connection connection = PersistenceConfig.getConnection();
     List<Article> articles = new ArrayList<>();
     @Override
-    public String save(int id, String Titre, String Categorie, File image, File video, int nbjaimeart) {
-
+    public Article save(int id, String Titre, String Categorie, File image, File video, int nbjaimeart) {
+        Article article = new Article();
         try {
             Statement stat=connection.createStatement();
             PreparedStatement ps = connection.prepareStatement("INSERT INTO article (id,titre,categorie,image,video,nbjaimeart) VALUES (?,?,?,?,?,?)");
            // ps.setInt(1, 212);
-            ps.setInt(1, id);
-            ps.setString(2, Titre);
-            ps.setString(3, Categorie);
+            ps.setInt(1, id);article.setId(id);
+            ps.setString(2, Titre);article.setTitre(Titre);
+            ps.setString(3, Categorie);article.setCategorie(Categorie);
             if(image == null) ps.setString(4, null);
             else{ byte[] fileContent = FileUtils.readFileToByteArray(image);
             ps.setString(4, Base64.getEncoder().encodeToString(fileContent));
+            article.setImage(Base64.getEncoder().encodeToString(fileContent));
             }
-            ps.setString(5, null);
-            ps.setInt(6, nbjaimeart);
+            ps.setString(5, null);article.setVideo(null);
+            ps.setInt(6, nbjaimeart);article.setNbjaimeart(nbjaimeart);
             ps.executeUpdate();
 
             ps.close();
         }catch(Exception e) {
             e.printStackTrace();
         }
-        return "The article was succesfuly saved !!";
+        return article;
     }
 
     @Override
@@ -93,7 +94,7 @@ public class ArticleService implements ArticleDAO {
 
     @Override
     public List<Article> getAricles() {
-
+        List<Article> articles = new ArrayList<>();
         try {
             Statement stat=connection.createStatement();
             ResultSet rs = stat.executeQuery("SELECT * FROM article;");
@@ -115,8 +116,16 @@ public class ArticleService implements ArticleDAO {
     }
 
     @Override
-    public String updateArticle(int idarticle,Article article) {
+    public Article updateArticle(int idarticle,Article article) {
         boolean cle =  false;
+        Article articlerst = new Article();
+        articlerst.setIdarticle(idarticle);
+        articlerst.setId(article.getId());
+        articlerst.setTitre(article.getTitre());
+        articlerst.setCategorie(article.getCategorie());
+        articlerst.setVideo(article.getVideo());
+        articlerst.setImage(article.getImage());
+        articlerst.setNbjaimeart(article.getNbjaimeart());
         try {
             PreparedStatement prep = connection.prepareStatement("update article set titre='"+article.getTitre()+"',categorie='"+article.getCategorie()+"'  where idarticle="+idarticle+";");
             prep.executeUpdate();
@@ -126,7 +135,7 @@ public class ArticleService implements ArticleDAO {
             e.printStackTrace();
 
         }
-        return "the Article was update succesufully";
+        return articlerst;
     }
 
     @Override

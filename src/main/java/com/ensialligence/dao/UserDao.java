@@ -3,6 +3,7 @@ package com.ensialligence.dao;
 import java.util.ArrayList;
 
 import com.ensialligence.model.User;
+import com.ensialligence.model.UserPlusToken;
 
 public interface UserDao {
 	
@@ -12,13 +13,13 @@ public interface UserDao {
 	 * @param password le password    "       "      "
 	 * @return l'utilisateur qu'on cherche
 	 */
-	 User findUser(String userName,String password);
+	 UserPlusToken findUser(String userName,String password);
 	/**
 	 * 
 	 * @param user c'est l'utilieateur qu'on va ajouté
-	 * @return true si il est bien ajouter; false sinon
+	 * @return token pour session sous form de string
 	 */
-	boolean addUser (User user);
+	String addUser (User user);
 	
 	/**
 	 * 

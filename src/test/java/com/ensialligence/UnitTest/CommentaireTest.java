@@ -34,8 +34,8 @@ public class CommentaireTest {
     @Test
     public void testComById() {
 
-        Commentaire Com =  com.getCommentById(4);
-        assertEquals(4,Com.getIdCom());
+        Commentaire Com =  com.getCommentById(6);
+        assertEquals(6,Com.getIdCom());
     }
     //**********************************************//
     //********Tester le method deleteCom*********//

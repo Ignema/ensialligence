@@ -6,7 +6,7 @@
 <body>
 
 <div class="container">
-    <form action="http://localhost:8080/Ensialligence_war/api/v1/savefile"  method="POST" enctype="multipart/form-data">
+    <form action="http://localhost:8080/Ensialligence_war/api/v1/addUser"  method="POST" enctype="multipart/form-data">
         <label for="file" ></label>
         <input type="file" name="file" id="file"><br>
         <!--<label for="video" ></label>
@@ -16,11 +16,15 @@
         <button type="submit">submit</button>
 
     </form>
-    <!--<form action="http://localhost:8080/Ensialligence_war/api/v1/sendemail" method="post">
+    <form action="http://localhost:8080/Ensialligence_war/api/v1/sendemail" method="post">
+        <input type="text" id="username" name="username">
+        <input type="password" id="password" name="password">
+        <input type="text" id="firstname" name="firstname">
+        <input type="text" id="lastname" name="lastname">
         <input type="text" id="email" name="email">
-        <input type="text" id="name" name="name">
+        <input type="text" id="date_nais" name="date_nais">
         <button type="submit">Send</button>
-    </form>-->
+    </form>
 </div>
 </body>
 </html>
