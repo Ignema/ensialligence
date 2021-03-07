@@ -1,6 +1,5 @@
 package com.ensialligence.web.rest;
 
-
 import com.ensialligence.model.Commentaire;
 import com.ensialligence.service.CommentaireService;
 

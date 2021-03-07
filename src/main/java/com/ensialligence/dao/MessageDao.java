@@ -1,6 +1,5 @@
 package com.ensialligence.dao;
 
-
 import com.ensialligence.model.Message;
 
 public interface MessageDao {

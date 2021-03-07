@@ -1,6 +1,6 @@
 .createContainer{
-    background-color: white;
-    width: 40rem;
+    background-color: #2980b9;
+    width: 50rem;
     height: 10rem;
     padding: 1rem;
     border-radius: 25px;
@@ -13,24 +13,27 @@
 
 .profileIcon{
     font-size: 5rem;
-    color: #514B4B;
+    color: white;
     margin-right: 1rem;
 }
 
 .createInput, .createBtn{
+    color: rgb(17, 8, 36);
+    font-weight: bolder;
     outline: none;
     border: none;
-    background-color: #C4C4C4;
 }
 
 .createInput{
+    background-color: white;
     border-radius: 15px;
-    height: 5rem;
+    height: 4.3rem;
     width: 30rem;
     padding: 1rem;
 }
 
 .createBtn{
+    background-color: white;
     border-radius: 15px;
     margin-top: 1rem;
     margin-left: 1.5rem;
@@ -38,10 +41,37 @@
     padding: .3rem;
     font-size: 1.1rem;
     font-weight: bolder;
+    transition: color .1s ease-in-out;
     cursor: pointer;
+}
+
+.createBtn:hover{
+    color: white;
+    background-color: #6db5e6;
+}
+
+.createBtn:active{
+    /* color: rgb(130, 81, 245); */
+    color: #6db5e6;
+    background-color: white;
+
 }
 
 .createSubmit{
     color: white;
-    background-color: #514B4B;
+    /* background-color: rgb(57, 42, 90); */
+    background-color: #6db5e6;
+    transition: color .1s ease-in-out;
+    cursor: pointer;
+}
+
+.createSubmit:hover{
+    color: #6db5e6;
+    background-color: white;
+}
+
+.createSubmit:active{
+    color: white;
+    background-color: rgb(15, 123, 173);
+
 }

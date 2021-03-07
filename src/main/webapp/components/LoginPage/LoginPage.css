@@ -1,4 +1,5 @@
 .loginContainer{
+    background-color: #2f3031;
     display: flex;
     flex-direction: row;
     height: 100vh;
@@ -94,9 +95,21 @@
     font-weight: bolder;
     border: none;
     cursor: pointer;
+    outline: none;
+    transition: all .1s ease-in-out;
 }
 
 .loginSubmit{
+    color: white;
+    background-color: #514B4B;
+}
+
+.loginSubmit:hover{
+    color: #514B4B;
+    background-color: white;
+}
+
+.loginSubmit:active{
     color: white;
     background-color: #514B4B;
 }
@@ -107,12 +120,25 @@
     margin-left: 1.5rem;
 }
 
+.loginSign:hover{
+    color: white;
+    background-color: #8f8c8c;
+    border: solid 1px transparent;
+}
+
+.loginSign:active{
+    color: #514B4B;
+    background-color: white;
+}
+
 .loginAlt{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
     width: 100%;
+    cursor: pointer;
+    transition: all .1s ease-in-out;
 }
 
 .loginAlt>p{
@@ -130,7 +156,15 @@
     flex-grow: 1;
 }
 
+.loginSocial svg:hover {
+    color: rgb(124, 122, 122);
+}
+
+.loginSocial svg:active {
+    color: rgb(235, 226, 226);
+}
+
 .loginFaCube{
     font-size: 33rem;
-    color: #514B4B;
+    color: white;
 }
