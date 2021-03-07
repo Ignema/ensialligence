@@ -11,7 +11,7 @@ import java.util.List;
 
 public class FriendService implements FriendDao {
 
-	Connection connection = new PersistenceConfig().connect(); 
+	Connection connection = PersistenceConfig.getInstance().connect();
 
     @Override
     public Friend addFriend(Friend f) {

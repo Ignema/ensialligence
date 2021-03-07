@@ -10,12 +10,14 @@ import java.sql.Statement;
 import java.util.Properties;
 
 public class PersistenceConfig {
-	
+
+    private static PersistenceConfig single_instance = null;
+
     static Properties properties;
 
-    public PersistenceConfig(){
+    private PersistenceConfig(){
     	
-        this.properties = new Properties();
+        properties = new Properties();
         try {
             properties.load(PersistenceConfig.class.getClassLoader().getResourceAsStream("application.properties"));
         } catch (
@@ -24,22 +26,35 @@ public class PersistenceConfig {
         }
     }
 
-    public static Connection connect(){
+    public static PersistenceConfig getInstance()
+    {
+        if (single_instance == null)
+            single_instance = new PersistenceConfig();
+
+        return single_instance;
+    }
+
+    public Connection connect(){
         try {
         	
             Class.forName(properties.getProperty("jdbcPath"));
-            String url = properties.getProperty("url") ;
+            String url = properties.getProperty("url") + ":" + properties.getProperty("port") + "/";
             String sqldir = System.getProperty("user.dir")+"/"+properties.getProperty("SQLDirectory");
             
             Connection connection = DriverManager.getConnection(url, properties.getProperty("username"), properties.getProperty("password"));
-            
+
             Statement statement = connection.createStatement();
+            statement.executeUpdate("CREATE DATABASE IF NOT EXISTS " + properties.getProperty("dbName"));
+
+            connection = DriverManager.getConnection(url + properties.getProperty("dbName"), properties.getProperty("username"), properties.getProperty("password"));
+
+            statement = connection.createStatement();
+            executeFile(statement, sqldir+"UtilisateurTable.sql");
             executeFile(statement, sqldir+"ArticleTable.sql");
             executeFile(statement, sqldir+"CommentaireTable.sql");
             executeFile(statement, sqldir+"FriendTable.sql");
             executeFile(statement, sqldir+"JaimeTable.sql");
             executeFile(statement, sqldir+"MessageTable.sql");
-            executeFile(statement, sqldir+"UtilisateurTable.sql");
             return connection;
 
         } catch (ClassNotFoundException | SQLException e) {
@@ -48,7 +63,6 @@ public class PersistenceConfig {
         return null;
     }
 
-    
     private static void executeFile(Statement statement, String fileName) {
         try (
             BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName))) {

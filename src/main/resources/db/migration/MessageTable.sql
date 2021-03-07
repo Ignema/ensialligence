@@ -1,4 +1,4 @@
-CREATE TABLE `message` (
+CREATE TABLE IF NOT EXISTS `message` (
   `idmsg` int NOT NULL AUTO_INCREMENT,
   `msg` varchar(200) DEFAULT NULL,
   `date_envoi` varchar(300) DEFAULT NULL,

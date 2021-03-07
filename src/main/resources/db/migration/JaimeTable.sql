@@ -1,4 +1,4 @@
-CREATE TABLE `jaime` (
+CREATE TABLE IF NOT EXISTS `jaime` (
   `idjaime` int NOT NULL AUTO_INCREMENT,
   `id` int DEFAULT NULL,
   `idarticle` int DEFAULT NULL,

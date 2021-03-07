@@ -1,4 +1,4 @@
-CREATE TABLE `friend` (
+CREATE TABLE IF NOT EXISTS `friend` (
   `idfriend` int NOT NULL AUTO_INCREMENT,
   `user_1` int DEFAULT NULL,
   `user_2` int DEFAULT NULL,

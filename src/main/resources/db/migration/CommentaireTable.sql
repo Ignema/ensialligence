@@ -1,4 +1,4 @@
-CREATE TABLE `commentaire` (
+CREATE TABLE IF NOT EXISTS `commentaire` (
   `idcom` int NOT NULL AUTO_INCREMENT,
   `id` int DEFAULT NULL,
   `idarticle` int DEFAULT NULL,

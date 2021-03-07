@@ -20,7 +20,7 @@ public class UserService implements UserDao {
 	Connection connection= null;
 	
 	public UserService() {
-		connection= PersistenceConfig.connect();
+		connection= PersistenceConfig.getInstance().connect();
 	}
 
 

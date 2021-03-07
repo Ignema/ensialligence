@@ -1,4 +1,4 @@
-CREATE TABLE `utilisateur` (
+CREATE TABLE IF NOT EXISTS `utilisateur` (
   `id` int NOT NULL AUTO_INCREMENT,
   `username` varchar(30) DEFAULT NULL,
   `password` varchar(30) DEFAULT NULL,
