@@ -13,8 +13,10 @@ public class MessageTest {
     @Test
     public void testAddMsg() {
 
-        msg.saveMsg(new Message( "Mon msg ","2020-02-02", false, 2, 3));
+        Message message = msg.saveMsg(new Message( "Mon msg ","2020-02-02", false, 2, 3));
 
+        System.out.println("Message added : [idMsg=" + message.getMsg() + ", msg=" + message.getMsg() + ", date_envoi=" + message.getDate_envoi() + ", isRead=" + message.isRead()
+                + ", idSender=" + message.getIdSender() + ", idReceiver=" + message.getIdReceiver() + "]");
     }
     //**************************************************//
 

@@ -16,7 +16,7 @@ public class FriendTest {
     @Test
     public void testAddFriend() {
 
-        friend.addFriend(new Friend(1, 3));
+        friend.addFriend(new Friend(2, 4));
 
     }
     //**************************************************//
@@ -25,7 +25,7 @@ public class FriendTest {
     @Test
     public void testFriendsByIdUser() {
         List<Friend>  Friends = friend.getFriends(1);
-        assertEquals(18,Friends.size());
+        assertEquals(21,Friends.size());
     }
     //**********************************************//
 

@@ -68,10 +68,10 @@ public class ServletController extends HttpServlet {
 
     @PUT
     @Path("update/{id}")
-    @Produces(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     //@Consumes("application/x-www-form-urlencoded")
-    public String updateArticle(
+    public Article updateArticle(
             @PathParam("id") int id,
             Article article ) {
 
@@ -90,11 +90,14 @@ public class ServletController extends HttpServlet {
     @POST
     @Path("/save")
     @Consumes(MediaType.APPLICATION_JSON)
-    public String  create (Article article){
+    @Produces(MediaType.APPLICATION_JSON)
+    public Article  create (Article article){
 
         System.out.println( "Article [idarticle=" + article.getIdarticle() + ", titre=" + article.getTitre() + ", categorie=" +article.getCategorie()+"]");
-        articleService.save(article.getId(),article.getTitre(),article.getCategorie(),img,null,article.getNbjaimeart());
-        return "Succesfully saved !";
+         articleService.save(article.getId(),article.getTitre(),article.getCategorie(),img,null,article.getNbjaimeart());
+        List<Article> art = articleService.getAricles();
+        article.setIdarticle(art.get(art.size()-1).getIdarticle());
+        return article;
     }
 
 

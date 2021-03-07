@@ -19,7 +19,7 @@ public class ArticleDAOImp implements ArticleDAO {
 	Connection connection = SingleConnection.getConnection();
 
 	@Override
-	public String save(int id,String Titre,String Categorie,File image , File video, int nbjaimeart) {
+	public Article save(int id,String Titre,String Categorie,File image , File video, int nbjaimeart) {
 		
 		try {
 			//File file = article.getImage();
@@ -46,7 +46,7 @@ public class ArticleDAOImp implements ArticleDAO {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return "The article was succesfuly saved !!";
+		return new Article();
 		
 	}
 
@@ -158,7 +158,7 @@ public class ArticleDAOImp implements ArticleDAO {
 	}
 
 	@Override
-	public String updateArticle(int idarticle,Article article) {
+	public Article updateArticle(int idarticle,Article article) {
 		boolean cle =  false;
 		try {
 			PreparedStatement prep = connection.prepareStatement("update article set titre='"+article.getTitre()+"',categorie='"+article.getCategorie()+"'  where idarticle="+idarticle+";");
@@ -169,7 +169,7 @@ public class ArticleDAOImp implements ArticleDAO {
 			e.printStackTrace();
 		}
 
-		return "true";
+		return new Article();
 	}
 
 
