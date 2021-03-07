@@ -20,6 +20,7 @@ const filterItems = (items, query) => {
 const Header = ({setToken}) => {
     const [openAlerts, setOpenAlerts] = useState(false);
     const [openSettings, setOpenSettings] = useState(false);
+    const [openSearch, setOpenSearch] = useState(false);
 
     const alerts = [
         {id: 0, title: "New Friend: Mohammed Eddaghal", icon: "❤"},
@@ -55,13 +56,13 @@ const Header = ({setToken}) => {
                 <img className="logo" src={logo} alt="Website Logo"/>
             </Link>
 
-            <div className="search">
+            <div className="search" onClick={() => setOpenSearch(!openSearch)}>
                 <FaSearch className="searchIcon" />
                 <form action="/" method="get" className="search-input" >
                     <input value={searchQuery} onInput={e => setSearchQuery(e.target.value)} type="text" name="search" placeholder="Search for something..."></input>
                     <input type="submit" hidden/>
                 </form>
-                {searchQuery && <Dropdown items={filteredPosts} width="500px" space="-20%" type="search"/>}
+                {searchQuery && openSearch && <Dropdown items={filteredPosts} width="500px" space="-20%" type="search" toggleDropdown={setOpenSearch}/>}
             </div>
 
             <ul className="navList">

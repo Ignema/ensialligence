@@ -1,7 +1,7 @@
 package com.ensialligence.service;
 
 
-import com.ensialligence.config.SingleConnection;
+import com.ensialligence.config.PersistenceConfig;
 import com.ensialligence.dao.FriendDao;
 import com.ensialligence.model.Friend;
 
@@ -11,7 +11,7 @@ import java.util.List;
 
 public class FriendService implements FriendDao {
 
-    Connection connection= SingleConnection.getConnection();
+    Connection connection= PersistenceConfig.getConnection();
 
     @Override
     public Friend addFriend(Friend f) {
