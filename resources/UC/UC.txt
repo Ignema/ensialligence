@@ -1,0 +1,47 @@
+@startuml
+left to right direction
+
+rectangle System {
+    (S'authentifier)
+    (Visualiser des articles ou des publications) 
+    (Entrer en discussion avec d'autres utilisateurs)
+    (Recevoir et accepter des demandes d'amitié)
+    (Visiter la page d'accueil)
+    (Visiter le profil)
+    (Envoyer des messages)
+    (Chercher un utilisateur)
+    (Partager l'article)
+    (Ajouter une mention "jaime")
+    (Commenter l'article)
+    (Publier un post)
+    (Voir les publications)
+}
+
+Utilisateur -right-> (Visualiser des articles ou des publications)
+Utilisateur -right-> (Entrer en discussion avec d'autres utilisateurs)
+Utilisateur -right-> (Recevoir et accepter des demandes d'amitié)
+Utilisateur -down-> (Visiter la page d'accueil)
+Utilisateur -down-> (Visiter le profil)
+
+(Visualiser des articles ou des publications)..> (S'authentifier) :<<include>>
+(Entrer en discussion avec d'autres utilisateurs)..> (S'authentifier) :<<include>>
+(Recevoir et accepter des demandes d'amitié)..> (S'authentifier) :<<include>>
+(Visiter la page d'accueil)..> (S'authentifier) :<<include>>
+(Visiter le profil)..> (S'authentifier) :<<include>>
+
+
+(Entrer en discussion avec d'autres utilisateurs)..> (Envoyer des messages) :<<include>>
+(Entrer en discussion avec d'autres utilisateurs)..> (Chercher un utilisateur) :<<include>>
+
+
+
+
+(Partager l'article)..> (Visualiser des articles ou des publications) :<<extends>>
+(Ajouter une mention "jaime")..> (Visualiser des articles ou des publications) :<<extends>>
+(Commenter l'article)..> (Visualiser des articles ou des publications) :<<extends>>
+
+(Publier un post)..> (Visiter la page d'accueil) :<<extends>>
+
+(Voir les publications)..> (Visiter le profil) :<<extends>>
+
+@enduml
