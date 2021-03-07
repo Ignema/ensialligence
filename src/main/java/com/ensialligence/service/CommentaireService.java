@@ -13,7 +13,7 @@ import java.util.List;
 
 public class CommentaireService implements CommentaireDao {
 	
-	Connection connection= PersistenceConfig.getConnection();
+	Connection connection = new PersistenceConfig().connect(); 
 
 	@Override
 	public Commentaire addComment(Commentaire c) {

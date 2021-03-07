@@ -12,7 +12,7 @@ import java.util.Base64;
 import java.util.List;
 
 public class ArticleService implements ArticleDAO {
-    Connection connection = PersistenceConfig.getConnection();
+    Connection connection = PersistenceConfig.connect();
     List<Article> articles = new ArrayList<>();
     @Override
     public Article save(int id, String Titre, String Categorie, File image, File video, int nbjaimeart) {

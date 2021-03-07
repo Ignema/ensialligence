@@ -6,7 +6,7 @@ import java.io.File;
 import java.util.List;
 
 
-public interface ArticleDAO {
+public interface ArticleDao {
 
 	public Article save(int id, String Titre, String Categorie, File image , File video, int nbjaimeart);
 	public List<Article> chercheParTitre(String titre);
