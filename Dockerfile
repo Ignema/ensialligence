@@ -1,9 +1,19 @@
-FROM tomcat:latest
+FROM node:latest
 
-# RUN adduser tomcat; chown -R tomcat:tomcat /usr/local/tomcat
+# RUN apt update
+# RUN apt install -y sudo
+# RUN sudo apt install -y nodejs
+# RUN sudo apt install -y npm
+# RUN npm install npm@latest -g
 
-# USER tomcat
-COPY target/Ensialligence-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/
+WORKDIR /app
+COPY package*.json ./
 
-CMD ["catalina.sh", "run"]
+RUN npm install
 
+COPY . .
+
+RUN npm install -g serve
+RUN npm build
+
+CMD ["serve", "-s", "build"]

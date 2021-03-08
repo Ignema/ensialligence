@@ -1,0 +1,21 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+  api:
+    build: ./target/
+    ports:
+      - "8080:8080"
+  db:
+    image: "mysql"
+    ports:
+      - "3306:3306"
+    environment: 
+      MYSQL_ROOT_PASSWORD: 140320
+    volumes:
+      - db-data:/data
+
+volumes:
+  db-data:
